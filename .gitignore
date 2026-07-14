@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.pyc
+venv/
+*.egg-info/
+
+# Secrets - never commit real credentials
+.env
+
+# Generated data and warehouse (reproducible from generate_data.py + load_warehouse.py)
+data/raw/
+warehouse/warehouse.duckdb
+
+# Eval run logs (can get large, and are timestamped/local)
+evals/results/
+
+# Editor/OS cruft
+.DS_Store
+.vscode/

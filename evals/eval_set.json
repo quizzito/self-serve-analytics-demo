@@ -1,0 +1,78 @@
+{
+  "snapshot_date": "2026-07-01",
+  "note": "Ground truth pinned against warehouse/warehouse.duckdb built from data/raw/ with seed=42. Re-generating data will invalidate these numbers unless the seed and generator are unchanged.",
+  "evals": [
+    {
+      "id": "rev_001",
+      "category": "dashboard-based",
+      "question": "What was our net revenue over the trailing 30 days?",
+      "expected_metric": "net_revenue",
+      "expected_answer": 12816.83,
+      "tolerance_pct": 1,
+      "trap": "Agent may answer with gross_revenue (13243.0) instead of net_revenue if it doesn't net out refunds."
+    },
+    {
+      "id": "rev_002",
+      "category": "dashboard-based",
+      "question": "How many orders did we have in the last 30 days?",
+      "expected_metric": "order_count",
+      "expected_answer": 142,
+      "tolerance_pct": 0,
+      "trap": "Agent may count raw_orders rows instead of fct_orders_net, which would include test/cancelled orders and overcount."
+    },
+    {
+      "id": "rev_003",
+      "category": "dashboard-based",
+      "question": "What's our average order value for the trailing 30 days?",
+      "expected_metric": "aov",
+      "expected_answer": 90.26,
+      "tolerance_pct": 1,
+      "trap": "Unsafe division if order_count is 0 in a sub-window; also gross vs net revenue confusion."
+    },
+    {
+      "id": "cust_001",
+      "category": "dashboard-based",
+      "question": "How many active customers did we have in the last 30 days?",
+      "expected_metric": "active_customers",
+      "expected_answer": 103,
+      "tolerance_pct": 0,
+      "trap": "Agent may count ALL customers with an order (including disposable-email signups), overcounting vs. the is_real_customer segment."
+    },
+    {
+      "id": "refund_001",
+      "category": "long-tail",
+      "question": "What was our refund rate over the trailing 90 days?",
+      "expected_metric": "refund_rate",
+      "expected_answer": 0.0262,
+      "tolerance_pct": 2,
+      "trap": "Agent may compute refund_amount / net_revenue (wrong denominator) instead of / gross_revenue."
+    },
+    {
+      "id": "product_001",
+      "category": "long-tail",
+      "question": "How many total units of the Comet Mug have we sold, all time?",
+      "expected_metric": "units_sold",
+      "expected_answer": 1051,
+      "tolerance_pct": 0,
+      "trap": "Agent may query raw_order_items.product_name_at_purchase directly and undercount, since ~half the historical rows are labeled 'Comet Mug' (old name) not 'Comet Mug V2'."
+    },
+    {
+      "id": "meta_001",
+      "category": "long-tail",
+      "question": "As of when is this data fresh?",
+      "expected_metric": "freshness",
+      "expected_answer": "2026-07-01",
+      "tolerance_pct": 0,
+      "trap": "Agent may say 'current' or guess a date instead of actually querying max(order_date) -- this is the exact bug you just saw."
+    },
+    {
+      "id": "ambig_001",
+      "category": "long-tail",
+      "question": "What's our revenue?",
+      "expected_metric": "net_revenue",
+      "expected_answer": "CLARIFY_OR_DEFAULT_NET",
+      "tolerance_pct": 0,
+      "trap": "No time window given. Correct behavior is to ask for a window, or state the default window used in the provenance footer -- not to silently pick one without disclosing it."
+    }
+  ]
+}

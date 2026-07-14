@@ -1,0 +1,92 @@
+# Semantic layer: governed metric + dimension definitions.
+# This is the SINGLE SOURCE OF TRUTH for these terms. If a question maps to
+# a metric here, use it and stop -- do not write raw SQL for it.
+# Every metric lists which canonical mart it compiles against so the mapping
+# from "business term" -> "governed model" is explicit and auditable.
+
+metrics:
+  net_revenue:
+    description: >
+      Total order value after refunds, excluding test and cancelled orders.
+      THE definition of "revenue" / "sales" / "GMV" for this business.
+    source_model: fct_orders_net
+    sql: sum(net_order_amount)
+    default_grain: order_date
+    aliases: [revenue, sales, gmv, net_sales]
+
+  gross_revenue:
+    description: >
+      Order value BEFORE refunds are netted out. Rarely what stakeholders
+      mean by "revenue" -- use net_revenue unless refunds are explicitly
+      out of scope for the question.
+    source_model: fct_orders_net
+    sql: sum(gross_order_amount)
+    default_grain: order_date
+
+  refund_amount:
+    description: Total dollar amount refunded.
+    source_model: fct_orders_net
+    sql: sum(refund_amount)
+    default_grain: order_date
+
+  refund_rate:
+    description: refund_amount / gross_revenue, for the same time window.
+    source_model: fct_orders_net
+    sql: sum(refund_amount) / nullif(sum(gross_order_amount), 0)
+    default_grain: order_date
+
+  order_count:
+    description: >
+      Count of distinct completed, non-test, non-cancelled orders.
+    source_model: fct_orders_net
+    sql: count(distinct order_id)
+    default_grain: order_date
+
+  aov:
+    description: Average order value = net_revenue / order_count.
+    source_model: fct_orders_net
+    sql: sum(net_order_amount) / nullif(count(distinct order_id), 0)
+    default_grain: order_date
+
+  active_customers:
+    description: >
+      Count of distinct REAL customers (excludes disposable-email signups,
+      see dim_customers.is_real_customer) who placed >=1 non-test,
+      non-cancelled order in the window.
+    source_model: fct_orders_net joined to dim_customers
+    sql: count(distinct case when dc.is_real_customer then fo.customer_id end)
+    default_grain: order_date
+
+  units_sold:
+    description: Total quantity of items sold across order lines.
+    source_model: fct_order_items
+    sql: sum(quantity)
+    default_grain: order_date
+
+dimensions:
+  order_date:
+    source_model: fct_orders_net
+    column: order_date
+    grain: daily
+
+  product_category:
+    source_model: fct_order_items
+    column: product_id  # join to raw_products for category
+    note: join fct_order_items.product_id -> raw_products.product_id for category
+
+  country:
+    source_model: dim_customers
+    column: country
+
+segments:
+  real_customers:
+    description: Customers excluding disposable/throwaway email domains.
+    filter: dim_customers.is_real_customer = true
+
+  completed_orders:
+    description: >
+      Already baked into fct_orders_net (test + cancelled excluded). Do NOT
+      re-apply a status filter on top of fct_orders_net -- it double-filters
+      and silently drops legitimate 'pending' orders that should still count
+      toward gross funnel metrics if asked.
+    filter: none (pre-applied in fct_orders_net)
