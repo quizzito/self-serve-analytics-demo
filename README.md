@@ -186,6 +186,27 @@ That is an acceptable cost during a proof-of-concept phase run at zero
 marginal cost. It is not a foundation to build a customer-facing or
 revenue-reporting system on.
 
+**5. If a model narrates its own provenance, it will eventually fabricate
+some of it.** The freshness-guessing bug kept resurfacing even after being
+explicitly instructed away. The fix that actually held: stop asking the
+model to describe what it did, and build the provenance footer in code
+from the real execution trace of every query it ran. A footer generated
+this way cannot lie, because it is not a memory, it is a log.
+
+**6. A grader should check for a fact before it judges an opinion.**
+Splitting grading into a programmatic check (does a `FINAL_ANSWER` line
+exist, does the number match within tolerance) and an LLM check (reserved
+only for genuinely judgment-based questions) cut LLM grading calls roughly
+in half and closed the exact false-pass hole that let an answer with no
+real number in it get marked correct earlier in this project.
+
+**7. Evals catch inconsistencies a human reviewer would miss on a skim.**
+One eval failed because the model used `>=` instead of `>` on a single
+date boundary, in an otherwise-correct query, on one question out of
+eight. That one-character inconsistency was invisible in a quick read of
+the SQL and only showed up because a pinned, tolerance-checked expected
+value caught the resulting drift.
+
 ### Strategic Next Steps
 
 1. **Run the same pinned eval set against a frontier model (Claude) and
@@ -229,7 +250,7 @@ warehouse/
   semantic_layer/metrics.yml     single source of truth for business terms
 skills/ecommerce-analytics/     agent instructions and reference docs
 agent/                         the working agent (NVIDIA free tier by default)
-evals/                         pinned test questions, grader, results log
+evals/                         pinned test questions, grader, results log, summarize_results.py
 docs/                          milestone by milestone build guide
 ```
 

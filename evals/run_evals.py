@@ -6,11 +6,25 @@ Requires: pip install openai
 
 Run: python3 evals/run_evals.py
 Writes: evals/results/<timestamp>.jsonl
+
+Grading strategy:
+  - Numeric expected answers: parsed straight out of the agent's mandatory
+    "FINAL_ANSWER: <value>" line and compared in plain Python against
+    expected_answer +/- tolerance_pct. No LLM call, no ambiguity.
+  - If FINAL_ANSWER is missing entirely: automatic fail. This is the fix
+    for the false-pass bug where an answer with no real number in it got
+    graded "correct" because the LLM grader saw SQL that looked plausible.
+  - Non-numeric expected answers (dates, "CLARIFY_OR_DEFAULT_NET"): fall
+    back to a single LLM grading call, since these need judgment, not just
+    arithmetic. This also cuts LLM grader calls roughly in half versus
+    grading everything with an LLM, which helps with rate limits too.
 """
 import datetime
 import json
 import os
+import re
 import sys
+import time
 
 import openai
 from openai import OpenAI
@@ -28,44 +42,114 @@ grader_client = OpenAI(
     timeout=30.0,
 )
 GRADER_MODEL = "mistralai/mistral-nemotron"
+SECONDS_BETWEEN_EVALS = 5
 
 
-def grade(question: str, expected: str, agent_answer: str, snapshot_date: str) -> dict:
-    prompt = f"""Grade this analytics agent response STRICTLY.
+def grader_call_with_retry(**kwargs):
+    last_err = None
+    for attempt in range(5):
+        try:
+            return grader_client.chat.completions.create(**kwargs)
+        except openai.RateLimitError as e:
+            last_err = e
+            wait = 15 * (attempt + 1)
+            print(f"  (rate limited, waiting {wait}s before retrying grader call)")
+            time.sleep(wait)
+        except (openai.APITimeoutError, openai.APIConnectionError) as e:
+            last_err = e
+            wait = 2 ** attempt
+            print(f"  (timeout/connection stall, retrying in {wait}s: {e})")
+            time.sleep(wait)
+        except Exception as e:
+            last_err = e
+            if "DEGRADED" in str(e) or "500" in str(e):
+                wait = 2 ** attempt
+                print(f"  (transient error, retrying in {wait}s: {e})")
+                time.sleep(wait)
+                continue
+            raise
+    raise last_err
+
+
+def extract_final_answer(agent_answer: str):
+    """Pull the value out of the mandatory 'FINAL_ANSWER: <value>' line.
+    Returns None if the agent never committed to one -- which is itself
+    an automatic fail, not something worth an LLM call to adjudicate."""
+    match = re.search(r"FINAL_ANSWER:\s*(\S+)", agent_answer)
+    return match.group(1).strip() if match else None
+
+
+def numeric_grade(final_value: str, expected: float, tolerance_pct: float) -> dict:
+    try:
+        agent_num = float(re.sub(r"[^\d.\-]", "", final_value))
+    except (ValueError, TypeError):
+        return {
+            "correct": False,
+            "reasoning": f"FINAL_ANSWER value '{final_value}' is not parseable as a number.",
+            "method": "automatic",
+        }
+    expected_num = float(expected)
+    if expected_num == 0:
+        correct = agent_num == 0
+    else:
+        pct_diff = abs(agent_num - expected_num) / abs(expected_num) * 100
+        correct = pct_diff <= tolerance_pct
+    return {
+        "correct": correct,
+        "reasoning": f"Programmatic check: agent={agent_num}, expected={expected_num}, tolerance={tolerance_pct}%.",
+        "method": "automatic",
+    }
+
+
+def llm_grade(question: str, expected: str, agent_answer: str, snapshot_date: str) -> dict:
+    prompt = f"""Grade this analytics agent response.
 
 Question: {question}
-Expected answer: {expected}
+Expected answer or expected behavior: {expected}
 Known correct data snapshot date: {snapshot_date}
 Agent's full response:
 ---
 {agent_answer}
 ---
 
-Grading rules (apply ALL of these):
-1. If the agent did not state a concrete final number/value matching the
-   expected answer -- e.g. it only described a plan, wrote SQL it didn't
-   execute, or apologized for an error without recovering -- mark correct=false,
-   even if the SQL shown looks like it would have worked.
-2. If the response includes a "Freshness" or date-window field in its
-   provenance footer, that date MUST match {snapshot_date} (for freshness)
-   or be a window ending on/near {snapshot_date} (for date windows). If the
-   footer shows a fabricated/incorrect date, set has_provenance_footer=true
-   but also note the mismatch in reasoning, and mark correct=false.
-3. Numeric answers should match within reasonable rounding tolerance.
+The agent's FINAL_ANSWER line has already been checked for presence. Judge
+whether the value and surrounding answer are substantively correct given
+the expected answer or expected behavior described above.
 
 Reply with ONLY a JSON object (no markdown fences, no explanation before or after):
-{{"correct": true, "has_provenance_footer": true, "reasoning": "one sentence"}}
+{{"correct": true, "reasoning": "one sentence"}}
 """
-    resp = grader_client.chat.completions.create(
+    resp = grader_call_with_retry(
         model=GRADER_MODEL,
         messages=[{"role": "user", "content": prompt}],
     )
     text = resp.choices[0].message.content or ""
     text = text.strip().removeprefix("```json").removeprefix("```").removesuffix("```").strip()
     try:
-        return json.loads(text)
+        parsed = json.loads(text)
+        parsed["method"] = "llm"
+        return parsed
     except json.JSONDecodeError:
-        return {"correct": False, "has_provenance_footer": False, "reasoning": f"unparseable grader output: {text[:200]}"}
+        return {"correct": False, "reasoning": f"unparseable grader output: {text[:200]}", "method": "llm"}
+
+
+def grade(ev: dict, agent_answer: str, snapshot_date: str) -> dict:
+    final_value = extract_final_answer(agent_answer)
+
+    if final_value is None:
+        return {
+            "correct": False,
+            "reasoning": "No FINAL_ANSWER line found -- agent did not commit to a concrete answer.",
+            "method": "automatic",
+        }
+
+    expected = ev["expected_answer"]
+    if isinstance(expected, (int, float)):
+        return numeric_grade(final_value, expected, ev.get("tolerance_pct", 0))
+
+    # Non-numeric expected answer (dates, special sentinel values like
+    # "CLARIFY_OR_DEFAULT_NET") -- needs judgment, use the LLM.
+    return llm_grade(ev["question"], str(expected), agent_answer, snapshot_date)
 
 
 def run():
@@ -77,14 +161,14 @@ def run():
     out_path = os.path.join(RESULTS_DIR, f"{ts}.jsonl")
 
     rows = []
-    for ev in eval_set["evals"]:
+    for i, ev in enumerate(eval_set["evals"]):
         print(f"\nrunning: {ev['id']} - {ev['question']}")
         try:
             agent_answer = answer_question(ev["question"])
         except Exception as e:
             agent_answer = f"AGENT ERROR: {e}"
 
-        grading = grade(ev["question"], str(ev["expected_answer"]), agent_answer, eval_set["snapshot_date"])
+        grading = grade(ev, agent_answer, eval_set["snapshot_date"])
         row = {
             "timestamp": ts,
             "eval_id": ev["id"],
@@ -93,23 +177,26 @@ def run():
             "expected_answer": ev["expected_answer"],
             "agent_answer": agent_answer,
             "correct": grading.get("correct", False),
-            "has_provenance_footer": grading.get("has_provenance_footer", False),
+            "grading_method": grading.get("method", "unknown"),
             "grader_reasoning": grading.get("reasoning", ""),
         }
         rows.append(row)
         status = "PASS" if row["correct"] else "FAIL"
-        print(f"[{status}] {ev['id']}")
+        print(f"[{status}] {ev['id']} (graded {row['grading_method']})")
         if not row["correct"]:
             print(f"         expected={ev['expected_answer']!r} reasoning={row['grader_reasoning']}")
+
+        if i < len(eval_set["evals"]) - 1:
+            time.sleep(SECONDS_BETWEEN_EVALS)
 
     with open(out_path, "w") as f:
         for r in rows:
             f.write(json.dumps(r) + "\n")
 
     n_correct = sum(r["correct"] for r in rows)
-    n_footer = sum(r["has_provenance_footer"] for r in rows)
+    n_auto = sum(r["grading_method"] == "automatic" for r in rows)
     print(f"\n{n_correct}/{len(rows)} correct ({100*n_correct/len(rows):.0f}%)")
-    print(f"{n_footer}/{len(rows)} included provenance footer")
+    print(f"{n_auto}/{len(rows)} graded programmatically (no LLM call)")
     print(f"results written to {out_path}")
 
 
