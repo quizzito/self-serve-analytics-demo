@@ -1,0 +1,7 @@
+self_serve_analytics:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: '../warehouse/warehouse.duckdb'
+      threads: 4

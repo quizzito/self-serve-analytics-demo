@@ -1,0 +1,65 @@
+name: analytics-ci
+
+# Mirrors the article's "colocate artifacts + enforce via CI" practice:
+# any PR touching the canonical marts, the semantic layer, the skill, or
+# the dbt project must re-run the relevant test suite before merge.
+on:
+  pull_request:
+    paths:
+      - "warehouse/models/marts/**"
+      - "warehouse/semantic_layer/**"
+      - "skills/**"
+      - "evals/eval_set.json"
+      - "dbt_analytics/**"
+
+jobs:
+  rebuild-and-eval:
+    runs-on: ubuntu-latest
+    env:
+      NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install duckdb pandas openai
+
+      - name: Generate dummy data
+        run: cd data && python3 generate_data.py
+
+      - name: Build warehouse (staging + canonical marts)
+        run: cd warehouse && python3 load_warehouse.py
+
+      - name: Run offline eval suite
+        run: python3 evals/run_evals.py
+
+      # Gate: fail the build if pass rate drops below threshold.
+      # (Left as a follow-up: parse the latest evals/results/*.jsonl and
+      # exit 1 if pass rate < 90%, per the article's per-domain launch gate.)
+
+  dbt-quality-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install dbt-core dbt-duckdb duckdb pandas
+
+      - name: Generate dummy data
+        run: cd data && python3 generate_data.py
+
+      - name: Load raw tables
+        run: cd warehouse && python3 load_warehouse.py
+
+      - name: dbt run
+        run: cd dbt_analytics && DBT_PROFILES_DIR=$(pwd) dbt run
+
+      - name: dbt test
+        run: cd dbt_analytics && DBT_PROFILES_DIR=$(pwd) dbt test

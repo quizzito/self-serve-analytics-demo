@@ -1,0 +1,48 @@
+version: 2
+
+models:
+  - name: fct_orders_net
+    description: "Canonical model for revenue. One row per order, net of refunds, excludes test/cancelled orders."
+    columns:
+      - name: order_id
+        tests:
+          - unique
+          - not_null
+      - name: customer_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_customers')
+              field: customer_id
+      - name: status
+        tests:
+          - accepted_values:
+              values: ['completed', 'pending']
+              # 'cancelled' is deliberately excluded here -- fct_orders_net
+              # filters cancelled orders out. If 'cancelled' ever shows up
+              # in this model, the filter broke.
+
+  - name: fct_order_items
+    description: "Canonical model for line items. One row per order line."
+    columns:
+      - name: order_item_id
+        tests:
+          - unique
+          - not_null
+      - name: order_id
+        tests:
+          - not_null
+      - name: product_name
+        tests:
+          - not_null
+
+  - name: dim_customers
+    description: "Canonical model for customers. One row per customer."
+    columns:
+      - name: customer_id
+        tests:
+          - unique
+          - not_null
+      - name: is_real_customer
+        tests:
+          - not_null

@@ -1,0 +1,1707 @@
+[0m12:03:25.820024 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x110319650>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1103622d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x110363910>]}
+
+
+============================== 12:03:25.827101 | f6f5c18c-4604-40ec-b6f1-f16b3b3ce461 ==============================
+[0m12:03:25.827101 [info ] [MainThread]: Running with dbt=1.11.11
+[0m12:03:25.828031 [debug] [MainThread]: running dbt with arguments {'no_print': 'None', 'debug': 'False', 'send_anonymous_usage_stats': 'True', 'partial_parse': 'True', 'indirect_selection': 'eager', 'log_format': 'default', 'warn_error': 'None', 'profiles_dir': '/Users/dipasmitadebroy/Documents/Artificial_Intelligence/ml_projects/self-serve-analytics-demo/dbt_analytics', 'version_check': 'True', 'write_json': 'True', 'cache_selected_only': 'False', 'log_path': '/Users/dipasmitadebroy/Documents/Artificial_Intelligence/ml_projects/self-serve-analytics-demo/dbt_analytics/logs', 'invocation_command': 'dbt run', 'static_parser': 'True', 'use_colors': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'use_experimental_parser': 'False', 'log_cache_events': 'False', 'introspect': 'True', 'printer_width': '80', 'quiet': 'False', 'target_path': 'None', 'empty': 'False', 'fail_fast': 'False'}
+[0m12:03:26.410415 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'f6f5c18c-4604-40ec-b6f1-f16b3b3ce461', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x110285c90>]}
+[0m12:03:26.502327 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'f6f5c18c-4604-40ec-b6f1-f16b3b3ce461', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10d505e50>]}
+[0m12:03:26.507859 [info ] [MainThread]: Registered adapter: duckdb=1.10.1
+[0m12:03:26.687391 [debug] [MainThread]: checksum: 30a8cc8fdcbf66701b0944d4ccce3fa46dd04b61e5df68b9f16d57b2e0e3f0be, vars: {}, profile: , target: , version: 1.11.11
+[0m12:03:26.688757 [info ] [MainThread]: Unable to do partial parsing because saved manifest not found. Starting full parse.
+[0m12:03:26.689437 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': 'f6f5c18c-4604-40ec-b6f1-f16b3b3ce461', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1103bde50>]}
+[0m12:03:28.642842 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'f6f5c18c-4604-40ec-b6f1-f16b3b3ce461', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1103f2c90>]}
+[0m12:03:28.791599 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/dipasmitadebroy/Documents/Artificial_Intelligence/ml_projects/self-serve-analytics-demo/dbt_analytics/target/manifest.json
+[0m12:03:28.799723 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/dipasmitadebroy/Documents/Artificial_Intelligence/ml_projects/self-serve-analytics-demo/dbt_analytics/target/semantic_manifest.json
+[0m12:03:28.840999 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'f6f5c18c-4604-40ec-b6f1-f16b3b3ce461', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x110c625d0>]}
+[0m12:03:28.841730 [info ] [MainThread]: Found 7 models, 5 sources, 485 macros
+[0m12:03:28.842396 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'f6f5c18c-4604-40ec-b6f1-f16b3b3ce461', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11074c110>]}
+[0m12:03:28.844954 [info ] [MainThread]: 
+[0m12:03:28.845506 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m12:03:28.846046 [info ] [MainThread]: 
+[0m12:03:28.846846 [debug] [MainThread]: Acquiring new duckdb connection 'master'
+[0m12:03:28.852869 [debug] [ThreadPool]: Acquiring new duckdb connection 'list_warehouse'
+[0m12:03:28.982631 [debug] [ThreadPool]: Using duckdb connection "list_warehouse"
+[0m12:03:28.988497 [debug] [ThreadPool]: On list_warehouse: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "self_serve_analytics", "target_name": "dev", "connection_name": "list_warehouse"} */
+
+    
+    select schema_name
+    from system.information_schema.schemata
+    
+    where lower(catalog_name) = '"warehouse"'
+    
+  
+  
+[0m12:03:28.988977 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m12:03:29.026985 [debug] [ThreadPool]: SQL status: OK in 0.038 seconds
+[0m12:03:29.028909 [debug] [ThreadPool]: On list_warehouse: Close
+[0m12:03:29.029972 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_warehouse, now create_warehouse_main)
+[0m12:03:29.030619 [debug] [ThreadPool]: Creating schema "database: "warehouse"
+schema: "main"
+"
+[0m12:03:29.038299 [debug] [ThreadPool]: Using duckdb connection "create_warehouse_main"
+[0m12:03:29.046327 [debug] [ThreadPool]: On create_warehouse_main: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "self_serve_analytics", "target_name": "dev", "connection_name": "create_warehouse_main"} */
+
+    
+        select type from duckdb_databases()
+        where lower(database_name)='warehouse'
+        and type='sqlite'
+    
+  
+[0m12:03:29.046919 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m12:03:29.048550 [debug] [ThreadPool]: SQL status: OK in 0.002 seconds
+[0m12:03:29.050095 [debug] [ThreadPool]: Using duckdb connection "create_warehouse_main"
+[0m12:03:29.050588 [debug] [ThreadPool]: On create_warehouse_main: BEGIN
+[0m12:03:29.051248 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m12:03:29.051655 [debug] [ThreadPool]: Using duckdb connection "create_warehouse_main"
+[0m12:03:29.052164 [debug] [ThreadPool]: On create_warehouse_main: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "self_serve_analytics", "target_name": "dev", "connection_name": "create_warehouse_main"} */
+
+    
+    
+        create schema if not exists "warehouse"."main"
+    
+[0m12:03:29.053030 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m12:03:29.054066 [debug] [ThreadPool]: On create_warehouse_main: COMMIT
+[0m12:03:29.054505 [debug] [ThreadPool]: Using duckdb connection "create_warehouse_main"
+[0m12:03:29.054907 [debug] [ThreadPool]: On create_warehouse_main: COMMIT
+[0m12:03:29.055571 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m12:03:29.059255 [debug] [ThreadPool]: On create_warehouse_main: Close
+[0m12:03:29.061479 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly create_warehouse_main, now list_warehouse_main)
+[0m12:03:29.092494 [debug] [ThreadPool]: Using duckdb connection "list_warehouse_main"
+[0m12:03:29.105629 [debug] [ThreadPool]: On list_warehouse_main: BEGIN
+[0m12:03:29.106145 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m12:03:29.106935 [debug] [ThreadPool]: SQL status: OK in 0.001 seconds
+[0m12:03:29.108349 [debug] [ThreadPool]: Using duckdb connection "list_warehouse_main"
+[0m12:03:29.111516 [debug] [ThreadPool]: On list_warehouse_main: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "self_serve_analytics", "target_name": "dev", "connection_name": "list_warehouse_main"} */
+select
+      'warehouse' as database,
+      table_name as name,
+      table_schema as schema,
+      CASE table_type
+        WHEN 'BASE TABLE' THEN 'table'
+        WHEN 'VIEW' THEN 'view'
+        WHEN 'LOCAL TEMPORARY' THEN 'table'
+        END as type
+    from system.information_schema.tables
+    where lower(table_schema) = 'main'
+    and lower(table_catalog) = 'warehouse'
+  
+[0m12:03:29.123283 [debug] [ThreadPool]: SQL status: OK in 0.010 seconds
+[0m12:03:29.125536 [debug] [ThreadPool]: On list_warehouse_main: ROLLBACK
+[0m12:03:29.127039 [debug] [ThreadPool]: Failed to rollback 'list_warehouse_main'
+[0m12:03:29.127519 [debug] [ThreadPool]: On list_warehouse_main: Close
+[0m12:03:29.131144 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'f6f5c18c-4604-40ec-b6f1-f16b3b3ce461', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x110f92690>]}
+[0m12:03:29.131924 [debug] [MainThread]: Using duckdb connection "master"
+[0m12:03:29.132402 [debug] [MainThread]: On master: BEGIN
+[0m12:03:29.132833 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m12:03:29.133623 [debug] [MainThread]: SQL status: OK in 0.001 seconds
+[0m12:03:29.136858 [debug] [MainThread]: On master: COMMIT
+[0m12:03:29.137339 [debug] [MainThread]: Using duckdb connection "master"
+[0m12:03:29.137760 [debug] [MainThread]: On master: COMMIT
+[0m12:03:29.138472 [debug] [MainThread]: SQL status: OK in 0.000 seconds
+[0m12:03:29.138929 [debug] [MainThread]: On master: Close
+[0m12:03:29.142349 [debug] [Thread-1 (]: Began running node model.self_serve_analytics.stg_customers
+[0m12:03:29.143048 [debug] [Thread-2 (]: Began running node model.self_serve_analytics.stg_order_items
+[0m12:03:29.143559 [debug] [Thread-3 (]: Began running node model.self_serve_analytics.stg_orders
+[0m12:03:29.144235 [debug] [Thread-4 (]: Began running node model.self_serve_analytics.stg_refunds
+[0m12:03:29.144946 [info ] [Thread-1 (]: 1 of 7 START sql view model main.stg_customers ................................. [RUN]
+[0m12:03:29.145685 [info ] [Thread-2 (]: 2 of 7 START sql view model main.stg_order_items ............................... [RUN]
+[0m12:03:29.151094 [info ] [Thread-3 (]: 3 of 7 START sql view model main.stg_orders .................................... [RUN]
+[0m12:03:29.152202 [info ] [Thread-4 (]: 4 of 7 START sql view model main.stg_refunds ................................... [RUN]
+[0m12:03:29.155158 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_warehouse_main, now model.self_serve_analytics.stg_customers)
+[0m12:03:29.155902 [debug] [Thread-2 (]: Acquiring new duckdb connection 'model.self_serve_analytics.stg_order_items'
+[0m12:03:29.157844 [debug] [Thread-3 (]: Acquiring new duckdb connection 'model.self_serve_analytics.stg_orders'
+[0m12:03:29.159649 [debug] [Thread-4 (]: Acquiring new duckdb connection 'model.self_serve_analytics.stg_refunds'
+[0m12:03:29.160245 [debug] [Thread-1 (]: Began compiling node model.self_serve_analytics.stg_customers
+[0m12:03:29.160834 [debug] [Thread-2 (]: Began compiling node model.self_serve_analytics.stg_order_items
+[0m12:03:29.161456 [debug] [Thread-3 (]: Began compiling node model.self_serve_analytics.stg_orders
+[0m12:03:29.162261 [debug] [Thread-4 (]: Began compiling node model.self_serve_analytics.stg_refunds
+[0m12:03:29.173687 [debug] [Thread-1 (]: Writing injected SQL for node "model.self_serve_analytics.stg_customers"
+[0m12:03:29.177632 [debug] [Thread-2 (]: Writing injected SQL for node "model.self_serve_analytics.stg_order_items"
+[0m12:03:29.182310 [debug] [Thread-3 (]: Writing injected SQL for node "model.self_serve_analytics.stg_orders"
+[0m12:03:29.186334 [debug] [Thread-4 (]: Writing injected SQL for node "model.self_serve_analytics.stg_refunds"
+[0m12:03:29.189268 [debug] [Thread-3 (]: Began executing node model.self_serve_analytics.stg_orders
+[0m12:03:29.190030 [debug] [Thread-1 (]: Began executing node model.self_serve_analytics.stg_customers
+[0m12:03:29.190733 [debug] [Thread-2 (]: Began executing node model.self_serve_analytics.stg_order_items
+[0m12:03:29.191249 [debug] [Thread-4 (]: Began executing node model.self_serve_analytics.stg_refunds
+[0m12:03:29.248692 [debug] [Thread-3 (]: Writing runtime sql for node "model.self_serve_analytics.stg_orders"
+[0m12:03:29.251382 [debug] [Thread-1 (]: Writing runtime sql for node "model.self_serve_analytics.stg_customers"
+[0m12:03:29.255645 [debug] [Thread-2 (]: Writing runtime sql for node "model.self_serve_analytics.stg_order_items"
+[0m12:03:29.260666 [debug] [Thread-4 (]: Writing runtime sql for node "model.self_serve_analytics.stg_refunds"
+[0m12:03:29.262846 [debug] [Thread-1 (]: Using duckdb connection "model.self_serve_analytics.stg_customers"
+[0m12:03:29.263448 [debug] [Thread-2 (]: Using duckdb connection "model.self_serve_analytics.stg_order_items"
+[0m12:03:29.263910 [debug] [Thread-1 (]: On model.self_serve_analytics.stg_customers: BEGIN
+[0m12:03:29.266268 [debug] [Thread-3 (]: Using duckdb connection "model.self_serve_analytics.stg_orders"
+[0m12:03:29.266775 [debug] [Thread-4 (]: Using duckdb connection "model.self_serve_analytics.stg_refunds"
+[0m12:03:29.267234 [debug] [Thread-2 (]: On model.self_serve_analytics.stg_order_items: BEGIN
+[0m12:03:29.268657 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m12:03:29.269264 [debug] [Thread-3 (]: On model.self_serve_analytics.stg_orders: BEGIN
+[0m12:03:29.270226 [debug] [Thread-4 (]: On model.self_serve_analytics.stg_refunds: BEGIN
+[0m12:03:29.271032 [debug] [Thread-2 (]: Opening a new connection, currently in state init
+[0m12:03:29.271939 [debug] [Thread-3 (]: Opening a new connection, currently in state init
+[0m12:03:29.272414 [debug] [Thread-1 (]: SQL status: OK in 0.004 seconds
+[0m12:03:29.272869 [debug] [Thread-4 (]: Opening a new connection, currently in state init
+[0m12:03:29.275525 [debug] [Thread-2 (]: SQL status: OK in 0.004 seconds
+[0m12:03:29.276324 [debug] [Thread-3 (]: SQL status: OK in 0.004 seconds
+[0m12:03:29.276747 [debug] [Thread-1 (]: Using duckdb connection "model.self_serve_analytics.stg_customers"
+[0m12:03:29.279362 [debug] [Thread-2 (]: Using duckdb connection "model.self_serve_analytics.stg_order_items"
+[0m12:03:29.279844 [debug] [Thread-4 (]: SQL status: OK in 0.007 seconds
+[0m12:03:29.280569 [debug] [Thread-3 (]: Using duckdb connection "model.self_serve_analytics.stg_orders"
+[0m12:03:29.281090 [debug] [Thread-1 (]: On model.self_serve_analytics.stg_customers: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "self_serve_analytics", "target_name": "dev", "node_id": "model.self_serve_analytics.stg_customers"} */
+
+  
+  create view "warehouse"."main"."stg_customers__dbt_tmp" as (
+    select
+    customer_id,
+    email_domain,
+    cast(signup_date as date) as signup_date,
+    country,
+    cast(marketing_opt_in as boolean) as marketing_opt_in,
+    email_domain in ('mailinator.com', 'tempmail.com') as is_disposable_email
+from "warehouse"."raw"."raw_customers"
+  );
+
+[0m12:03:29.281646 [debug] [Thread-2 (]: On model.self_serve_analytics.stg_order_items: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "self_serve_analytics", "target_name": "dev", "node_id": "model.self_serve_analytics.stg_order_items"} */
+
+  
+  create view "warehouse"."main"."stg_order_items__dbt_tmp" as (
+    select
+    oi.order_item_id,
+    oi.order_id,
+    oi.product_id,
+    case
+        when oi.product_name_at_purchase = 'Comet Mug' then 'Comet Mug V2'
+        else oi.product_name_at_purchase
+    end as product_name,
+    oi.quantity,
+    oi.unit_price,
+    oi.quantity * oi.unit_price as line_amount
+from "warehouse"."raw"."raw_order_items" oi
+  );
+
+[0m12:03:29.282222 [debug] [Thread-4 (]: Using duckdb connection "model.self_serve_analytics.stg_refunds"
+[0m12:03:29.284017 [debug] [Thread-3 (]: On model.self_serve_analytics.stg_orders: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "self_serve_analytics", "target_name": "dev", "node_id": "model.self_serve_analytics.stg_orders"} */
+
+  
+  create view "warehouse"."main"."stg_orders__dbt_tmp" as (
+    select
+    order_id,
+    customer_id,
+    cast(order_date as date) as order_date,
+    status,
+    cast(is_test as boolean) as is_test
+from "warehouse"."raw"."raw_orders"
+  );
+
+[0m12:03:29.287190 [debug] [Thread-4 (]: On model.self_serve_analytics.stg_refunds: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "self_serve_analytics", "target_name": "dev", "node_id": "model.self_serve_analytics.stg_refunds"} */
+
+  
+  create view "warehouse"."main"."stg_refunds__dbt_tmp" as (
+    select
+    refund_id,
+    order_id,
+    cast(refund_date as date) as refund_date,
+    refund_amount,
+    reason
+from "warehouse"."raw"."raw_refunds"
+  );
+
+[0m12:03:29.295949 [debug] [Thread-1 (]: DuckDB adapter: duckdb error: Catalog Error: Table with name "raw.raw_customers" does not exist because schema "raw" does not exist.
+
+LINE 12: from "warehouse"."raw"."raw_customers"
+              ^
+[0m12:03:29.296713 [debug] [Thread-3 (]: DuckDB adapter: duckdb error: Catalog Error: Table with name "raw.raw_orders" does not exist because schema "raw" does not exist.
+
+LINE 11: from "warehouse"."raw"."raw_orders"
+              ^
+[0m12:03:29.297246 [debug] [Thread-4 (]: DuckDB adapter: duckdb error: Catalog Error: Table with name "raw.raw_refunds" does not exist because schema "raw" does not exist.
+
+LINE 11: from "warehouse"."raw"."raw_refunds"
+              ^
+[0m12:03:29.297864 [debug] [Thread-2 (]: DuckDB adapter: duckdb error: Catalog Error: Table with name "raw.raw_order_items" does not exist because schema "raw" does not exist.
+
+LINE 16: from "warehouse"."raw"."raw_order_items" oi
+              ^
+[0m12:03:29.298639 [debug] [Thread-1 (]: DuckDB adapter: Error running SQL: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "self_serve_analytics", "target_name": "dev", "node_id": "model.self_serve_analytics.stg_customers"} */
+
+  
+  create view "warehouse"."main"."stg_customers__dbt_tmp" as (
+    select
+    customer_id,
+    email_domain,
+    cast(signup_date as date) as signup_date,
+    country,
+    cast(marketing_opt_in as boolean) as marketing_opt_in,
+    email_domain in ('mailinator.com', 'tempmail.com') as is_disposable_email
+from "warehouse"."raw"."raw_customers"
+  );
+
+[0m12:03:29.299689 [debug] [Thread-3 (]: DuckDB adapter: Error running SQL: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "self_serve_analytics", "target_name": "dev", "node_id": "model.self_serve_analytics.stg_orders"} */
+
+  
+  create view "warehouse"."main"."stg_orders__dbt_tmp" as (
+    select
+    order_id,
+    customer_id,
+    cast(order_date as date) as order_date,
+    status,
+    cast(is_test as boolean) as is_test
+from "warehouse"."raw"."raw_orders"
+  );
+
+[0m12:03:29.300334 [debug] [Thread-4 (]: DuckDB adapter: Error running SQL: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "self_serve_analytics", "target_name": "dev", "node_id": "model.self_serve_analytics.stg_refunds"} */
+
+  
+  create view "warehouse"."main"."stg_refunds__dbt_tmp" as (
+    select
+    refund_id,
+    order_id,
+    cast(refund_date as date) as refund_date,
+    refund_amount,
+    reason
+from "warehouse"."raw"."raw_refunds"
+  );
+
+[0m12:03:29.300934 [debug] [Thread-2 (]: DuckDB adapter: Error running SQL: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "self_serve_analytics", "target_name": "dev", "node_id": "model.self_serve_analytics.stg_order_items"} */
+
+  
+  create view "warehouse"."main"."stg_order_items__dbt_tmp" as (
+    select
+    oi.order_item_id,
+    oi.order_id,
+    oi.product_id,
+    case
+        when oi.product_name_at_purchase = 'Comet Mug' then 'Comet Mug V2'
+        else oi.product_name_at_purchase
+    end as product_name,
+    oi.quantity,
+    oi.unit_price,
+    oi.quantity * oi.unit_price as line_amount
+from "warehouse"."raw"."raw_order_items" oi
+  );
+
+[0m12:03:29.301639 [debug] [Thread-1 (]: DuckDB adapter: Rolling back transaction.
+[0m12:03:29.302919 [debug] [Thread-3 (]: DuckDB adapter: Rolling back transaction.
+[0m12:03:29.303427 [debug] [Thread-4 (]: DuckDB adapter: Rolling back transaction.
+[0m12:03:29.305445 [debug] [Thread-2 (]: DuckDB adapter: Rolling back transaction.
+[0m12:03:29.306369 [debug] [Thread-1 (]: On model.self_serve_analytics.stg_customers: ROLLBACK
+[0m12:03:29.306863 [debug] [Thread-3 (]: On model.self_serve_analytics.stg_orders: ROLLBACK
+[0m12:03:29.307328 [debug] [Thread-4 (]: On model.self_serve_analytics.stg_refunds: ROLLBACK
+[0m12:03:29.307824 [debug] [Thread-2 (]: On model.self_serve_analytics.stg_order_items: ROLLBACK
+[0m12:03:29.311086 [debug] [Thread-1 (]: Failed to rollback 'model.self_serve_analytics.stg_customers'
+[0m12:03:29.312042 [debug] [Thread-3 (]: Failed to rollback 'model.self_serve_analytics.stg_orders'
+[0m12:03:29.312711 [debug] [Thread-4 (]: Failed to rollback 'model.self_serve_analytics.stg_refunds'
+[0m12:03:29.313350 [debug] [Thread-2 (]: Failed to rollback 'model.self_serve_analytics.stg_order_items'
+[0m12:03:29.314231 [debug] [Thread-1 (]: On model.self_serve_analytics.stg_customers: Close
+[0m12:03:29.315153 [debug] [Thread-3 (]: On model.self_serve_analytics.stg_orders: Close
+[0m12:03:29.315970 [debug] [Thread-4 (]: On model.self_serve_analytics.stg_refunds: Close
+[0m12:03:29.316580 [debug] [Thread-2 (]: On model.self_serve_analytics.stg_order_items: Close
+[0m12:03:29.333460 [debug] [Thread-4 (]: Runtime Error in model stg_refunds (models/staging/stg_refunds.sql)
+  Catalog Error: Table with name "raw.raw_refunds" does not exist because schema "raw" does not exist.
+  
+  LINE 11: from "warehouse"."raw"."raw_refunds"
+                ^
+[0m12:03:29.334973 [debug] [Thread-2 (]: Runtime Error in model stg_order_items (models/staging/stg_order_items.sql)
+  Catalog Error: Table with name "raw.raw_order_items" does not exist because schema "raw" does not exist.
+  
+  LINE 16: from "warehouse"."raw"."raw_order_items" oi
+                ^
+[0m12:03:29.336571 [debug] [Thread-1 (]: Runtime Error in model stg_customers (models/staging/stg_customers.sql)
+  Catalog Error: Table with name "raw.raw_customers" does not exist because schema "raw" does not exist.
+  
+  LINE 12: from "warehouse"."raw"."raw_customers"
+                ^
+[0m12:03:29.338270 [debug] [Thread-3 (]: Runtime Error in model stg_orders (models/staging/stg_orders.sql)
+  Catalog Error: Table with name "raw.raw_orders" does not exist because schema "raw" does not exist.
+  
+  LINE 11: from "warehouse"."raw"."raw_orders"
+                ^
+[0m12:03:29.340996 [debug] [Thread-4 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'f6f5c18c-4604-40ec-b6f1-f16b3b3ce461', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1101428d0>]}
+[0m12:03:29.341467 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'f6f5c18c-4604-40ec-b6f1-f16b3b3ce461', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x110f55b50>]}
+[0m12:03:29.341832 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'f6f5c18c-4604-40ec-b6f1-f16b3b3ce461', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x110f80d10>]}
+[0m12:03:29.342524 [error] [Thread-4 (]: 4 of 7 ERROR creating sql view model main.stg_refunds .......................... [[31mERROR[0m in 0.18s]
+[0m12:03:29.342959 [debug] [Thread-3 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'f6f5c18c-4604-40ec-b6f1-f16b3b3ce461', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x110a421d0>]}
+[0m12:03:29.343678 [error] [Thread-2 (]: 2 of 7 ERROR creating sql view model main.stg_order_items ...................... [[31mERROR[0m in 0.18s]
+[0m12:03:29.344526 [error] [Thread-1 (]: 1 of 7 ERROR creating sql view model main.stg_customers ........................ [[31mERROR[0m in 0.19s]
+[0m12:03:29.345299 [debug] [Thread-4 (]: Finished running node model.self_serve_analytics.stg_refunds
+[0m12:03:29.346298 [error] [Thread-3 (]: 3 of 7 ERROR creating sql view model main.stg_orders ........................... [[31mERROR[0m in 0.18s]
+[0m12:03:29.347483 [debug] [Thread-2 (]: Finished running node model.self_serve_analytics.stg_order_items
+[0m12:03:29.348639 [debug] [Thread-1 (]: Finished running node model.self_serve_analytics.stg_customers
+[0m12:03:29.349891 [debug] [Thread-7 (]: Marking all children of 'model.self_serve_analytics.stg_refunds' to be skipped because of status 'error'.  Reason: Runtime Error in model stg_refunds (models/staging/stg_refunds.sql)
+  Catalog Error: Table with name "raw.raw_refunds" does not exist because schema "raw" does not exist.
+  
+  LINE 11: from "warehouse"."raw"."raw_refunds"
+                ^.
+[0m12:03:29.350934 [debug] [Thread-3 (]: Finished running node model.self_serve_analytics.stg_orders
+[0m12:03:29.353166 [debug] [Thread-7 (]: Marking all children of 'model.self_serve_analytics.stg_order_items' to be skipped because of status 'error'.  Reason: Runtime Error in model stg_order_items (models/staging/stg_order_items.sql)
+  Catalog Error: Table with name "raw.raw_order_items" does not exist because schema "raw" does not exist.
+  
+  LINE 16: from "warehouse"."raw"."raw_order_items" oi
+                ^.
+[0m12:03:29.354621 [debug] [Thread-7 (]: Marking all children of 'model.self_serve_analytics.stg_customers' to be skipped because of status 'error'.  Reason: Runtime Error in model stg_customers (models/staging/stg_customers.sql)
+  Catalog Error: Table with name "raw.raw_customers" does not exist because schema "raw" does not exist.
+  
+  LINE 12: from "warehouse"."raw"."raw_customers"
+                ^.
+[0m12:03:29.355865 [debug] [Thread-7 (]: Marking all children of 'model.self_serve_analytics.stg_orders' to be skipped because of status 'error'.  Reason: Runtime Error in model stg_orders (models/staging/stg_orders.sql)
+  Catalog Error: Table with name "raw.raw_orders" does not exist because schema "raw" does not exist.
+  
+  LINE 11: from "warehouse"."raw"."raw_orders"
+                ^.
+[0m12:03:29.356880 [debug] [Thread-4 (]: Began running node model.self_serve_analytics.dim_customers
+[0m12:03:29.357693 [debug] [Thread-1 (]: Began running node model.self_serve_analytics.fct_order_items
+[0m12:03:29.358350 [info ] [Thread-4 (]: 5 of 7 SKIP relation main.dim_customers ........................................ [[33mSKIP[0m]
+[0m12:03:29.358946 [info ] [Thread-1 (]: 6 of 7 SKIP relation main.fct_order_items ...................................... [[33mSKIP[0m]
+[0m12:03:29.359521 [debug] [Thread-4 (]: Finished running node model.self_serve_analytics.dim_customers
+[0m12:03:29.360172 [debug] [Thread-1 (]: Finished running node model.self_serve_analytics.fct_order_items
+[0m12:03:29.361250 [debug] [Thread-2 (]: Began running node model.self_serve_analytics.fct_orders_net
+[0m12:03:29.362163 [info ] [Thread-2 (]: 7 of 7 SKIP relation main.fct_orders_net ....................................... [[33mSKIP[0m]
+[0m12:03:29.362764 [debug] [Thread-2 (]: Finished running node model.self_serve_analytics.fct_orders_net
+[0m12:03:29.364432 [debug] [MainThread]: Using duckdb connection "master"
+[0m12:03:29.365005 [debug] [MainThread]: On master: BEGIN
+[0m12:03:29.365466 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m12:03:29.366254 [debug] [MainThread]: SQL status: OK in 0.001 seconds
+[0m12:03:29.366714 [debug] [MainThread]: On master: COMMIT
+[0m12:03:29.367145 [debug] [MainThread]: Using duckdb connection "master"
+[0m12:03:29.367549 [debug] [MainThread]: On master: COMMIT
+[0m12:03:29.368204 [debug] [MainThread]: SQL status: OK in 0.000 seconds
+[0m12:03:29.368785 [debug] [MainThread]: On master: Close
+[0m12:03:29.369552 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m12:03:29.370287 [debug] [MainThread]: Connection 'model.self_serve_analytics.stg_customers' was properly closed.
+[0m12:03:29.370869 [debug] [MainThread]: Connection 'model.self_serve_analytics.stg_order_items' was properly closed.
+[0m12:03:29.371325 [debug] [MainThread]: Connection 'model.self_serve_analytics.stg_orders' was properly closed.
+[0m12:03:29.371835 [debug] [MainThread]: Connection 'model.self_serve_analytics.stg_refunds' was properly closed.
+[0m12:03:29.372403 [info ] [MainThread]: 
+[0m12:03:29.372886 [info ] [MainThread]: Finished running 7 view models in 0 hours 0 minutes and 0.53 seconds (0.53s).
+[0m12:03:29.374342 [debug] [MainThread]: Command end result
+[0m12:03:29.485474 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/dipasmitadebroy/Documents/Artificial_Intelligence/ml_projects/self-serve-analytics-demo/dbt_analytics/target/manifest.json
+[0m12:03:29.488096 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/dipasmitadebroy/Documents/Artificial_Intelligence/ml_projects/self-serve-analytics-demo/dbt_analytics/target/semantic_manifest.json
+[0m12:03:29.495972 [debug] [MainThread]: Wrote artifact RunExecutionResult to /Users/dipasmitadebroy/Documents/Artificial_Intelligence/ml_projects/self-serve-analytics-demo/dbt_analytics/target/run_results.json
+[0m12:03:29.496931 [info ] [MainThread]: 
+[0m12:03:29.497827 [info ] [MainThread]: [31mCompleted with 4 errors, 0 partial successes, and 0 warnings:[0m
+[0m12:03:29.498465 [info ] [MainThread]: 
+[0m12:03:29.499075 [error] [MainThread]: [31mFailure in model stg_refunds (models/staging/stg_refunds.sql)[0m
+[0m12:03:29.499672 [error] [MainThread]:   Runtime Error in model stg_refunds (models/staging/stg_refunds.sql)
+  Catalog Error: Table with name "raw.raw_refunds" does not exist because schema "raw" does not exist.
+  
+  LINE 11: from "warehouse"."raw"."raw_refunds"
+                ^
+[0m12:03:29.500142 [info ] [MainThread]: 
+[0m12:03:29.500673 [info ] [MainThread]:   compiled code at target/compiled/self_serve_analytics/models/staging/stg_refunds.sql
+[0m12:03:29.501144 [info ] [MainThread]: 
+[0m12:03:29.501686 [error] [MainThread]: [31mFailure in model stg_order_items (models/staging/stg_order_items.sql)[0m
+[0m12:03:29.502650 [error] [MainThread]:   Runtime Error in model stg_order_items (models/staging/stg_order_items.sql)
+  Catalog Error: Table with name "raw.raw_order_items" does not exist because schema "raw" does not exist.
+  
+  LINE 16: from "warehouse"."raw"."raw_order_items" oi
+                ^
+[0m12:03:29.503367 [info ] [MainThread]: 
+[0m12:03:29.504107 [info ] [MainThread]:   compiled code at target/compiled/self_serve_analytics/models/staging/stg_order_items.sql
+[0m12:03:29.504634 [info ] [MainThread]: 
+[0m12:03:29.505189 [error] [MainThread]: [31mFailure in model stg_customers (models/staging/stg_customers.sql)[0m
+[0m12:03:29.505729 [error] [MainThread]:   Runtime Error in model stg_customers (models/staging/stg_customers.sql)
+  Catalog Error: Table with name "raw.raw_customers" does not exist because schema "raw" does not exist.
+  
+  LINE 12: from "warehouse"."raw"."raw_customers"
+                ^
+[0m12:03:29.506177 [info ] [MainThread]: 
+[0m12:03:29.506690 [info ] [MainThread]:   compiled code at target/compiled/self_serve_analytics/models/staging/stg_customers.sql
+[0m12:03:29.507140 [info ] [MainThread]: 
+[0m12:03:29.507661 [error] [MainThread]: [31mFailure in model stg_orders (models/staging/stg_orders.sql)[0m
+[0m12:03:29.508183 [error] [MainThread]:   Runtime Error in model stg_orders (models/staging/stg_orders.sql)
+  Catalog Error: Table with name "raw.raw_orders" does not exist because schema "raw" does not exist.
+  
+  LINE 11: from "warehouse"."raw"."raw_orders"
+                ^
+[0m12:03:29.508650 [info ] [MainThread]: 
+[0m12:03:29.509282 [info ] [MainThread]:   compiled code at target/compiled/self_serve_analytics/models/staging/stg_orders.sql
+[0m12:03:29.509879 [info ] [MainThread]: 
+[0m12:03:29.510419 [info ] [MainThread]: Done. PASS=0 WARN=0 ERROR=4 SKIP=3 NO-OP=0 TOTAL=7
+[0m12:03:29.514840 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": false, "command_wall_clock_time": 3.8109448, "process_in_blocks": "0", "process_kernel_time": 0.806212, "process_mem_max_rss": "149839872", "process_out_blocks": "0", "process_user_time": 4.973768}
+[0m12:03:29.515563 [debug] [MainThread]: Command `dbt run` failed at 12:03:29.515424 after 3.81 seconds
+[0m12:03:29.516138 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10b99a190>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10b99a010>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x111197f10>]}
+[0m12:03:29.516715 [debug] [MainThread]: Flushing usage events
+[0m12:03:30.633241 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m17:08:46.219836 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10df9c890>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10dc54190>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10e082a50>]}
+
+
+============================== 17:08:46.227223 | 836baf0c-ed01-4117-9b0b-a6976fe69056 ==============================
+[0m17:08:46.227223 [info ] [MainThread]: Running with dbt=1.11.11
+[0m17:08:46.228091 [debug] [MainThread]: running dbt with arguments {'use_colors': 'True', 'printer_width': '80', 'debug': 'False', 'log_cache_events': 'False', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'profiles_dir': '/Users/dipasmitadebroy/Documents/Artificial_Intelligence/ml_projects/self-serve-analytics-demo/dbt_analytics', 'version_check': 'True', 'indirect_selection': 'eager', 'introspect': 'True', 'send_anonymous_usage_stats': 'True', 'invocation_command': 'dbt run', 'empty': 'False', 'log_path': '/Users/dipasmitadebroy/Documents/Artificial_Intelligence/ml_projects/self-serve-analytics-demo/dbt_analytics/logs', 'write_json': 'True', 'no_print': 'None', 'target_path': 'None', 'cache_selected_only': 'False', 'use_experimental_parser': 'False', 'partial_parse': 'True', 'fail_fast': 'False', 'log_format': 'default', 'quiet': 'False', 'static_parser': 'True', 'warn_error': 'None'}
+[0m17:08:46.904612 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '836baf0c-ed01-4117-9b0b-a6976fe69056', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10e0d69d0>]}
+[0m17:08:46.998702 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '836baf0c-ed01-4117-9b0b-a6976fe69056', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10e349e90>]}
+[0m17:08:47.002090 [info ] [MainThread]: Registered adapter: duckdb=1.10.1
+[0m17:08:47.174583 [debug] [MainThread]: checksum: 30a8cc8fdcbf66701b0944d4ccce3fa46dd04b61e5df68b9f16d57b2e0e3f0be, vars: {}, profile: , target: , version: 1.11.11
+[0m17:08:47.344134 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 1 files changed.
+[0m17:08:47.345420 [debug] [MainThread]: Partial parsing: updated file: self_serve_analytics://models/staging/sources.yml
+[0m17:08:47.868411 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '836baf0c-ed01-4117-9b0b-a6976fe69056', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10e7fbfd0>]}
+[0m17:08:47.974035 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/dipasmitadebroy/Documents/Artificial_Intelligence/ml_projects/self-serve-analytics-demo/dbt_analytics/target/manifest.json
+[0m17:08:47.976635 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/dipasmitadebroy/Documents/Artificial_Intelligence/ml_projects/self-serve-analytics-demo/dbt_analytics/target/semantic_manifest.json
+[0m17:08:47.992446 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '836baf0c-ed01-4117-9b0b-a6976fe69056', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10e30b150>]}
+[0m17:08:47.993148 [info ] [MainThread]: Found 7 models, 5 sources, 485 macros
+[0m17:08:47.993646 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '836baf0c-ed01-4117-9b0b-a6976fe69056', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10e049d50>]}
+[0m17:08:47.996099 [info ] [MainThread]: 
+[0m17:08:47.996587 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m17:08:47.997094 [info ] [MainThread]: 
+[0m17:08:47.997857 [debug] [MainThread]: Acquiring new duckdb connection 'master'
+[0m17:08:48.004513 [debug] [ThreadPool]: Acquiring new duckdb connection 'list_warehouse'
+[0m17:08:48.084059 [debug] [ThreadPool]: Using duckdb connection "list_warehouse"
+[0m17:08:48.084576 [debug] [ThreadPool]: On list_warehouse: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "self_serve_analytics", "target_name": "dev", "connection_name": "list_warehouse"} */
+
+    
+    select schema_name
+    from system.information_schema.schemata
+    
+    where lower(catalog_name) = '"warehouse"'
+    
+  
+  
+[0m17:08:48.085008 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m17:08:48.129652 [debug] [ThreadPool]: SQL status: OK in 0.045 seconds
+[0m17:08:48.131840 [debug] [ThreadPool]: On list_warehouse: Close
+[0m17:08:48.132726 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_warehouse, now create_warehouse_main)
+[0m17:08:48.133799 [debug] [ThreadPool]: Creating schema "database: "warehouse"
+schema: "main"
+"
+[0m17:08:48.142243 [debug] [ThreadPool]: Using duckdb connection "create_warehouse_main"
+[0m17:08:48.142778 [debug] [ThreadPool]: On create_warehouse_main: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "self_serve_analytics", "target_name": "dev", "connection_name": "create_warehouse_main"} */
+
+    
+        select type from duckdb_databases()
+        where lower(database_name)='warehouse'
+        and type='sqlite'
+    
+  
+[0m17:08:48.143328 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m17:08:48.145569 [debug] [ThreadPool]: SQL status: OK in 0.002 seconds
+[0m17:08:48.147586 [debug] [ThreadPool]: Using duckdb connection "create_warehouse_main"
+[0m17:08:48.148311 [debug] [ThreadPool]: On create_warehouse_main: BEGIN
+[0m17:08:48.149523 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m17:08:48.150129 [debug] [ThreadPool]: Using duckdb connection "create_warehouse_main"
+[0m17:08:48.150653 [debug] [ThreadPool]: On create_warehouse_main: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "self_serve_analytics", "target_name": "dev", "connection_name": "create_warehouse_main"} */
+
+    
+    
+        create schema if not exists "warehouse"."main"
+    
+[0m17:08:48.152084 [debug] [ThreadPool]: SQL status: OK in 0.001 seconds
+[0m17:08:48.153231 [debug] [ThreadPool]: On create_warehouse_main: COMMIT
+[0m17:08:48.153720 [debug] [ThreadPool]: Using duckdb connection "create_warehouse_main"
+[0m17:08:48.154173 [debug] [ThreadPool]: On create_warehouse_main: COMMIT
+[0m17:08:48.154881 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m17:08:48.155366 [debug] [ThreadPool]: On create_warehouse_main: Close
+[0m17:08:48.157238 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly create_warehouse_main, now list_warehouse_main)
+[0m17:08:48.164423 [debug] [ThreadPool]: Using duckdb connection "list_warehouse_main"
+[0m17:08:48.165294 [debug] [ThreadPool]: On list_warehouse_main: BEGIN
+[0m17:08:48.165758 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m17:08:48.166709 [debug] [ThreadPool]: SQL status: OK in 0.001 seconds
+[0m17:08:48.167235 [debug] [ThreadPool]: Using duckdb connection "list_warehouse_main"
+[0m17:08:48.167789 [debug] [ThreadPool]: On list_warehouse_main: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "self_serve_analytics", "target_name": "dev", "connection_name": "list_warehouse_main"} */
+select
+      'warehouse' as database,
+      table_name as name,
+      table_schema as schema,
+      CASE table_type
+        WHEN 'BASE TABLE' THEN 'table'
+        WHEN 'VIEW' THEN 'view'
+        WHEN 'LOCAL TEMPORARY' THEN 'table'
+        END as type
+    from system.information_schema.tables
+    where lower(table_schema) = 'main'
+    and lower(table_catalog) = 'warehouse'
+  
+[0m17:08:48.177075 [debug] [ThreadPool]: SQL status: OK in 0.009 seconds
+[0m17:08:48.179283 [debug] [ThreadPool]: On list_warehouse_main: ROLLBACK
+[0m17:08:48.180829 [debug] [ThreadPool]: Failed to rollback 'list_warehouse_main'
+[0m17:08:48.181338 [debug] [ThreadPool]: On list_warehouse_main: Close
+[0m17:08:48.184524 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '836baf0c-ed01-4117-9b0b-a6976fe69056', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10e7c1050>]}
+[0m17:08:48.185200 [debug] [MainThread]: Using duckdb connection "master"
+[0m17:08:48.185658 [debug] [MainThread]: On master: BEGIN
+[0m17:08:48.186119 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m17:08:48.186961 [debug] [MainThread]: SQL status: OK in 0.001 seconds
+[0m17:08:48.187422 [debug] [MainThread]: On master: COMMIT
+[0m17:08:48.187855 [debug] [MainThread]: Using duckdb connection "master"
+[0m17:08:48.188287 [debug] [MainThread]: On master: COMMIT
+[0m17:08:48.188934 [debug] [MainThread]: SQL status: OK in 0.000 seconds
+[0m17:08:48.189395 [debug] [MainThread]: On master: Close
+[0m17:08:48.192663 [debug] [Thread-1 (]: Began running node model.self_serve_analytics.stg_customers
+[0m17:08:48.193196 [debug] [Thread-2 (]: Began running node model.self_serve_analytics.stg_order_items
+[0m17:08:48.193797 [debug] [Thread-3 (]: Began running node model.self_serve_analytics.stg_orders
+[0m17:08:48.194395 [debug] [Thread-4 (]: Began running node model.self_serve_analytics.stg_refunds
+[0m17:08:48.231488 [info ] [Thread-1 (]: 1 of 7 START sql view model main.stg_customers ................................. [RUN]
+[0m17:08:48.232611 [info ] [Thread-2 (]: 2 of 7 START sql view model main.stg_order_items ............................... [RUN]
+[0m17:08:48.233299 [info ] [Thread-3 (]: 3 of 7 START sql view model main.stg_orders .................................... [RUN]
+[0m17:08:48.233913 [info ] [Thread-4 (]: 4 of 7 START sql view model main.stg_refunds ................................... [RUN]
+[0m17:08:48.234565 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_warehouse_main, now model.self_serve_analytics.stg_customers)
+[0m17:08:48.235182 [debug] [Thread-2 (]: Acquiring new duckdb connection 'model.self_serve_analytics.stg_order_items'
+[0m17:08:48.235779 [debug] [Thread-3 (]: Acquiring new duckdb connection 'model.self_serve_analytics.stg_orders'
+[0m17:08:48.236356 [debug] [Thread-4 (]: Acquiring new duckdb connection 'model.self_serve_analytics.stg_refunds'
+[0m17:08:48.236843 [debug] [Thread-1 (]: Began compiling node model.self_serve_analytics.stg_customers
+[0m17:08:48.237339 [debug] [Thread-2 (]: Began compiling node model.self_serve_analytics.stg_order_items
+[0m17:08:48.237888 [debug] [Thread-3 (]: Began compiling node model.self_serve_analytics.stg_orders
+[0m17:08:48.238675 [debug] [Thread-4 (]: Began compiling node model.self_serve_analytics.stg_refunds
+[0m17:08:48.249152 [debug] [Thread-1 (]: Writing injected SQL for node "model.self_serve_analytics.stg_customers"
+[0m17:08:48.262767 [debug] [Thread-2 (]: Writing injected SQL for node "model.self_serve_analytics.stg_order_items"
+[0m17:08:48.271532 [debug] [Thread-3 (]: Writing injected SQL for node "model.self_serve_analytics.stg_orders"
+[0m17:08:48.275863 [debug] [Thread-4 (]: Writing injected SQL for node "model.self_serve_analytics.stg_refunds"
+[0m17:08:48.284386 [debug] [Thread-1 (]: Began executing node model.self_serve_analytics.stg_customers
+[0m17:08:48.285023 [debug] [Thread-3 (]: Began executing node model.self_serve_analytics.stg_orders
+[0m17:08:48.290813 [debug] [Thread-2 (]: Began executing node model.self_serve_analytics.stg_order_items
+[0m17:08:48.307831 [debug] [Thread-4 (]: Began executing node model.self_serve_analytics.stg_refunds
+[0m17:08:48.340427 [debug] [Thread-1 (]: Writing runtime sql for node "model.self_serve_analytics.stg_customers"
+[0m17:08:48.343194 [debug] [Thread-3 (]: Writing runtime sql for node "model.self_serve_analytics.stg_orders"
+[0m17:08:48.348677 [debug] [Thread-2 (]: Writing runtime sql for node "model.self_serve_analytics.stg_order_items"
+[0m17:08:48.353905 [debug] [Thread-4 (]: Writing runtime sql for node "model.self_serve_analytics.stg_refunds"
+[0m17:08:48.355694 [debug] [Thread-1 (]: Using duckdb connection "model.self_serve_analytics.stg_customers"
+[0m17:08:48.356683 [debug] [Thread-2 (]: Using duckdb connection "model.self_serve_analytics.stg_order_items"
+[0m17:08:48.357555 [debug] [Thread-3 (]: Using duckdb connection "model.self_serve_analytics.stg_orders"
+[0m17:08:48.358061 [debug] [Thread-1 (]: On model.self_serve_analytics.stg_customers: BEGIN
+[0m17:08:48.358578 [debug] [Thread-4 (]: Using duckdb connection "model.self_serve_analytics.stg_refunds"
+[0m17:08:48.359213 [debug] [Thread-2 (]: On model.self_serve_analytics.stg_order_items: BEGIN
+[0m17:08:48.359778 [debug] [Thread-3 (]: On model.self_serve_analytics.stg_orders: BEGIN
+[0m17:08:48.360314 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m17:08:48.360837 [debug] [Thread-4 (]: On model.self_serve_analytics.stg_refunds: BEGIN
+[0m17:08:48.361329 [debug] [Thread-2 (]: Opening a new connection, currently in state init
+[0m17:08:48.361813 [debug] [Thread-3 (]: Opening a new connection, currently in state init
+[0m17:08:48.362593 [debug] [Thread-4 (]: Opening a new connection, currently in state init
+[0m17:08:48.363393 [debug] [Thread-1 (]: SQL status: OK in 0.003 seconds
+[0m17:08:48.363958 [debug] [Thread-2 (]: SQL status: OK in 0.003 seconds
+[0m17:08:48.365015 [debug] [Thread-3 (]: SQL status: OK in 0.003 seconds
+[0m17:08:48.365644 [debug] [Thread-1 (]: Using duckdb connection "model.self_serve_analytics.stg_customers"
+[0m17:08:48.366209 [debug] [Thread-4 (]: SQL status: OK in 0.004 seconds
+[0m17:08:48.366762 [debug] [Thread-2 (]: Using duckdb connection "model.self_serve_analytics.stg_order_items"
+[0m17:08:48.367417 [debug] [Thread-3 (]: Using duckdb connection "model.self_serve_analytics.stg_orders"
+[0m17:08:48.368109 [debug] [Thread-1 (]: On model.self_serve_analytics.stg_customers: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "self_serve_analytics", "target_name": "dev", "node_id": "model.self_serve_analytics.stg_customers"} */
+
+  
+  create view "warehouse"."main"."stg_customers__dbt_tmp" as (
+    select
+    customer_id,
+    email_domain,
+    cast(signup_date as date) as signup_date,
+    country,
+    cast(marketing_opt_in as boolean) as marketing_opt_in,
+    email_domain in ('mailinator.com', 'tempmail.com') as is_disposable_email
+from "warehouse"."main"."raw_customers"
+  );
+
+[0m17:08:48.368724 [debug] [Thread-4 (]: Using duckdb connection "model.self_serve_analytics.stg_refunds"
+[0m17:08:48.369409 [debug] [Thread-2 (]: On model.self_serve_analytics.stg_order_items: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "self_serve_analytics", "target_name": "dev", "node_id": "model.self_serve_analytics.stg_order_items"} */
+
+  
+  create view "warehouse"."main"."stg_order_items__dbt_tmp" as (
+    select
+    oi.order_item_id,
+    oi.order_id,
+    oi.product_id,
+    case
+        when oi.product_name_at_purchase = 'Comet Mug' then 'Comet Mug V2'
+        else oi.product_name_at_purchase
+    end as product_name,
+    oi.quantity,
+    oi.unit_price,
+    oi.quantity * oi.unit_price as line_amount
+from "warehouse"."main"."raw_order_items" oi
+  );
+
+[0m17:08:48.370456 [debug] [Thread-3 (]: On model.self_serve_analytics.stg_orders: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "self_serve_analytics", "target_name": "dev", "node_id": "model.self_serve_analytics.stg_orders"} */
+
+  
+  create view "warehouse"."main"."stg_orders__dbt_tmp" as (
+    select
+    order_id,
+    customer_id,
+    cast(order_date as date) as order_date,
+    status,
+    cast(is_test as boolean) as is_test
+from "warehouse"."main"."raw_orders"
+  );
+
+[0m17:08:48.371835 [debug] [Thread-4 (]: On model.self_serve_analytics.stg_refunds: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "self_serve_analytics", "target_name": "dev", "node_id": "model.self_serve_analytics.stg_refunds"} */
+
+  
+  create view "warehouse"."main"."stg_refunds__dbt_tmp" as (
+    select
+    refund_id,
+    order_id,
+    cast(refund_date as date) as refund_date,
+    refund_amount,
+    reason
+from "warehouse"."main"."raw_refunds"
+  );
+
+[0m17:08:48.372776 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m17:08:48.374241 [debug] [Thread-2 (]: SQL status: OK in 0.001 seconds
+[0m17:08:48.380409 [debug] [Thread-3 (]: SQL status: OK in 0.007 seconds
+[0m17:08:48.384792 [debug] [Thread-1 (]: Using duckdb connection "model.self_serve_analytics.stg_customers"
+[0m17:08:48.385511 [debug] [Thread-4 (]: SQL status: OK in 0.012 seconds
+[0m17:08:48.391080 [debug] [Thread-2 (]: Using duckdb connection "model.self_serve_analytics.stg_order_items"
+[0m17:08:48.395980 [debug] [Thread-3 (]: Using duckdb connection "model.self_serve_analytics.stg_orders"
+[0m17:08:48.397100 [debug] [Thread-1 (]: On model.self_serve_analytics.stg_customers: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "self_serve_analytics", "target_name": "dev", "node_id": "model.self_serve_analytics.stg_customers"} */
+alter view "warehouse"."main"."stg_customers" rename to "stg_customers__dbt_backup"
+[0m17:08:48.408152 [debug] [Thread-4 (]: Using duckdb connection "model.self_serve_analytics.stg_refunds"
+[0m17:08:48.408836 [debug] [Thread-2 (]: On model.self_serve_analytics.stg_order_items: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "self_serve_analytics", "target_name": "dev", "node_id": "model.self_serve_analytics.stg_order_items"} */
+alter view "warehouse"."main"."stg_order_items" rename to "stg_order_items__dbt_backup"
+[0m17:08:48.409419 [debug] [Thread-3 (]: On model.self_serve_analytics.stg_orders: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "self_serve_analytics", "target_name": "dev", "node_id": "model.self_serve_analytics.stg_orders"} */
+alter view "warehouse"."main"."stg_orders" rename to "stg_orders__dbt_backup"
+[0m17:08:48.410643 [debug] [Thread-4 (]: On model.self_serve_analytics.stg_refunds: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "self_serve_analytics", "target_name": "dev", "node_id": "model.self_serve_analytics.stg_refunds"} */
+alter view "warehouse"."main"."stg_refunds" rename to "stg_refunds__dbt_backup"
+[0m17:08:48.411541 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m17:08:48.412216 [debug] [Thread-2 (]: SQL status: OK in 0.001 seconds
+[0m17:08:48.413017 [debug] [Thread-3 (]: SQL status: OK in 0.001 seconds
+[0m17:08:48.417804 [debug] [Thread-1 (]: Using duckdb connection "model.self_serve_analytics.stg_customers"
+[0m17:08:48.423813 [debug] [Thread-4 (]: SQL status: OK in 0.011 seconds
+[0m17:08:48.424557 [debug] [Thread-2 (]: Using duckdb connection "model.self_serve_analytics.stg_order_items"
+[0m17:08:48.428865 [debug] [Thread-3 (]: Using duckdb connection "model.self_serve_analytics.stg_orders"
+[0m17:08:48.429536 [debug] [Thread-1 (]: On model.self_serve_analytics.stg_customers: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "self_serve_analytics", "target_name": "dev", "node_id": "model.self_serve_analytics.stg_customers"} */
+alter view "warehouse"."main"."stg_customers__dbt_tmp" rename to "stg_customers"
+[0m17:08:48.434028 [debug] [Thread-4 (]: Using duckdb connection "model.self_serve_analytics.stg_refunds"
+[0m17:08:48.434650 [debug] [Thread-2 (]: On model.self_serve_analytics.stg_order_items: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "self_serve_analytics", "target_name": "dev", "node_id": "model.self_serve_analytics.stg_order_items"} */
+alter view "warehouse"."main"."stg_order_items__dbt_tmp" rename to "stg_order_items"
+[0m17:08:48.435211 [debug] [Thread-3 (]: On model.self_serve_analytics.stg_orders: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "self_serve_analytics", "target_name": "dev", "node_id": "model.self_serve_analytics.stg_orders"} */
+alter view "warehouse"."main"."stg_orders__dbt_tmp" rename to "stg_orders"
+[0m17:08:48.435982 [debug] [Thread-4 (]: On model.self_serve_analytics.stg_refunds: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "self_serve_analytics", "target_name": "dev", "node_id": "model.self_serve_analytics.stg_refunds"} */
+alter view "warehouse"."main"."stg_refunds__dbt_tmp" rename to "stg_refunds"
+[0m17:08:48.436551 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m17:08:48.437579 [debug] [Thread-2 (]: SQL status: OK in 0.001 seconds
+[0m17:08:48.438024 [debug] [Thread-3 (]: SQL status: OK in 0.001 seconds
+[0m17:08:48.456307 [debug] [Thread-4 (]: SQL status: OK in 0.019 seconds
+[0m17:08:48.457318 [debug] [Thread-1 (]: On model.self_serve_analytics.stg_customers: COMMIT
+[0m17:08:48.459213 [debug] [Thread-2 (]: On model.self_serve_analytics.stg_order_items: COMMIT
+[0m17:08:48.461246 [debug] [Thread-3 (]: On model.self_serve_analytics.stg_orders: COMMIT
+[0m17:08:48.463197 [debug] [Thread-4 (]: On model.self_serve_analytics.stg_refunds: COMMIT
+[0m17:08:48.463985 [debug] [Thread-1 (]: Using duckdb connection "model.self_serve_analytics.stg_customers"
+[0m17:08:48.464608 [debug] [Thread-2 (]: Using duckdb connection "model.self_serve_analytics.stg_order_items"
+[0m17:08:48.465355 [debug] [Thread-3 (]: Using duckdb connection "model.self_serve_analytics.stg_orders"
+[0m17:08:48.465900 [debug] [Thread-4 (]: Using duckdb connection "model.self_serve_analytics.stg_refunds"
+[0m17:08:48.466410 [debug] [Thread-1 (]: On model.self_serve_analytics.stg_customers: COMMIT
+[0m17:08:48.466910 [debug] [Thread-2 (]: On model.self_serve_analytics.stg_order_items: COMMIT
+[0m17:08:48.467406 [debug] [Thread-3 (]: On model.self_serve_analytics.stg_orders: COMMIT
+[0m17:08:48.467897 [debug] [Thread-4 (]: On model.self_serve_analytics.stg_refunds: COMMIT
+[0m17:08:48.470110 [debug] [Thread-1 (]: SQL status: OK in 0.002 seconds
+[0m17:08:48.470774 [debug] [Thread-2 (]: SQL status: OK in 0.002 seconds
+[0m17:08:48.471249 [debug] [Thread-4 (]: SQL status: OK in 0.002 seconds
+[0m17:08:48.471700 [debug] [Thread-3 (]: SQL status: OK in 0.003 seconds
+[0m17:08:48.479050 [debug] [Thread-1 (]: Using duckdb connection "model.self_serve_analytics.stg_customers"
+[0m17:08:48.482710 [debug] [Thread-2 (]: Using duckdb connection "model.self_serve_analytics.stg_order_items"
+[0m17:08:48.486008 [debug] [Thread-4 (]: Using duckdb connection "model.self_serve_analytics.stg_refunds"
+[0m17:08:48.489008 [debug] [Thread-3 (]: Using duckdb connection "model.self_serve_analytics.stg_orders"
+[0m17:08:48.489557 [debug] [Thread-1 (]: On model.self_serve_analytics.stg_customers: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "self_serve_analytics", "target_name": "dev", "node_id": "model.self_serve_analytics.stg_customers"} */
+
+      drop view if exists "warehouse"."main"."stg_customers__dbt_backup" cascade
+    
+[0m17:08:48.490199 [debug] [Thread-2 (]: On model.self_serve_analytics.stg_order_items: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "self_serve_analytics", "target_name": "dev", "node_id": "model.self_serve_analytics.stg_order_items"} */
+
+      drop view if exists "warehouse"."main"."stg_order_items__dbt_backup" cascade
+    
+[0m17:08:48.490833 [debug] [Thread-4 (]: On model.self_serve_analytics.stg_refunds: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "self_serve_analytics", "target_name": "dev", "node_id": "model.self_serve_analytics.stg_refunds"} */
+
+      drop view if exists "warehouse"."main"."stg_refunds__dbt_backup" cascade
+    
+[0m17:08:48.491412 [debug] [Thread-3 (]: On model.self_serve_analytics.stg_orders: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "self_serve_analytics", "target_name": "dev", "node_id": "model.self_serve_analytics.stg_orders"} */
+
+      drop view if exists "warehouse"."main"."stg_orders__dbt_backup" cascade
+    
+[0m17:08:48.492910 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m17:08:48.493539 [debug] [Thread-2 (]: SQL status: OK in 0.001 seconds
+[0m17:08:48.494099 [debug] [Thread-4 (]: SQL status: OK in 0.001 seconds
+[0m17:08:48.497207 [debug] [Thread-1 (]: On model.self_serve_analytics.stg_customers: Close
+[0m17:08:48.497748 [debug] [Thread-3 (]: SQL status: OK in 0.004 seconds
+[0m17:08:48.499618 [debug] [Thread-2 (]: On model.self_serve_analytics.stg_order_items: Close
+[0m17:08:48.501162 [debug] [Thread-4 (]: On model.self_serve_analytics.stg_refunds: Close
+[0m17:08:48.504227 [debug] [Thread-3 (]: On model.self_serve_analytics.stg_orders: Close
+[0m17:08:48.505091 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '836baf0c-ed01-4117-9b0b-a6976fe69056', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10ede7ed0>]}
+[0m17:08:48.505574 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '836baf0c-ed01-4117-9b0b-a6976fe69056', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10ed9e250>]}
+[0m17:08:48.506329 [debug] [Thread-4 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '836baf0c-ed01-4117-9b0b-a6976fe69056', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10edd9150>]}
+[0m17:08:48.507054 [debug] [Thread-3 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '836baf0c-ed01-4117-9b0b-a6976fe69056', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10ec6b790>]}
+[0m17:08:48.507990 [info ] [Thread-1 (]: 1 of 7 OK created sql view model main.stg_customers ............................ [[32mOK[0m in 0.27s]
+[0m17:08:48.508807 [info ] [Thread-2 (]: 2 of 7 OK created sql view model main.stg_order_items .......................... [[32mOK[0m in 0.27s]
+[0m17:08:48.509585 [info ] [Thread-4 (]: 4 of 7 OK created sql view model main.stg_refunds .............................. [[32mOK[0m in 0.27s]
+[0m17:08:48.510415 [info ] [Thread-3 (]: 3 of 7 OK created sql view model main.stg_orders ............................... [[32mOK[0m in 0.27s]
+[0m17:08:48.511365 [debug] [Thread-1 (]: Finished running node model.self_serve_analytics.stg_customers
+[0m17:08:48.512063 [debug] [Thread-2 (]: Finished running node model.self_serve_analytics.stg_order_items
+[0m17:08:48.512744 [debug] [Thread-4 (]: Finished running node model.self_serve_analytics.stg_refunds
+[0m17:08:48.513677 [debug] [Thread-3 (]: Finished running node model.self_serve_analytics.stg_orders
+[0m17:08:48.515272 [debug] [Thread-2 (]: Began running node model.self_serve_analytics.dim_customers
+[0m17:08:48.519436 [debug] [Thread-1 (]: Began running node model.self_serve_analytics.fct_order_items
+[0m17:08:48.520200 [info ] [Thread-2 (]: 5 of 7 START sql view model main.dim_customers ................................. [RUN]
+[0m17:08:48.547656 [info ] [Thread-1 (]: 6 of 7 START sql view model main.fct_order_items ............................... [RUN]
+[0m17:08:48.565296 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly model.self_serve_analytics.stg_order_items, now model.self_serve_analytics.dim_customers)
+[0m17:08:48.567025 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.self_serve_analytics.stg_customers, now model.self_serve_analytics.fct_order_items)
+[0m17:08:48.568886 [debug] [Thread-2 (]: Began compiling node model.self_serve_analytics.dim_customers
+[0m17:08:48.569893 [debug] [Thread-1 (]: Began compiling node model.self_serve_analytics.fct_order_items
+[0m17:08:48.594585 [debug] [Thread-2 (]: Writing injected SQL for node "model.self_serve_analytics.dim_customers"
+[0m17:08:48.600859 [debug] [Thread-1 (]: Writing injected SQL for node "model.self_serve_analytics.fct_order_items"
+[0m17:08:48.602234 [debug] [Thread-1 (]: Began executing node model.self_serve_analytics.fct_order_items
+[0m17:08:48.602776 [debug] [Thread-2 (]: Began executing node model.self_serve_analytics.dim_customers
+[0m17:08:48.609817 [debug] [Thread-1 (]: Writing runtime sql for node "model.self_serve_analytics.fct_order_items"
+[0m17:08:48.615711 [debug] [Thread-2 (]: Writing runtime sql for node "model.self_serve_analytics.dim_customers"
+[0m17:08:48.617310 [debug] [Thread-1 (]: Using duckdb connection "model.self_serve_analytics.fct_order_items"
+[0m17:08:48.617913 [debug] [Thread-2 (]: Using duckdb connection "model.self_serve_analytics.dim_customers"
+[0m17:08:48.618450 [debug] [Thread-1 (]: On model.self_serve_analytics.fct_order_items: BEGIN
+[0m17:08:48.618971 [debug] [Thread-2 (]: On model.self_serve_analytics.dim_customers: BEGIN
+[0m17:08:48.619492 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m17:08:48.620114 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m17:08:48.621204 [debug] [Thread-1 (]: SQL status: OK in 0.002 seconds
+[0m17:08:48.621910 [debug] [Thread-1 (]: Using duckdb connection "model.self_serve_analytics.fct_order_items"
+[0m17:08:48.622465 [debug] [Thread-2 (]: SQL status: OK in 0.002 seconds
+[0m17:08:48.622953 [debug] [Thread-1 (]: On model.self_serve_analytics.fct_order_items: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "self_serve_analytics", "target_name": "dev", "node_id": "model.self_serve_analytics.fct_order_items"} */
+
+  
+  create view "warehouse"."main"."fct_order_items__dbt_tmp" as (
+    select
+    oi.order_item_id,
+    oi.order_id,
+    o.customer_id,
+    o.order_date,
+    o.status,
+    oi.product_id,
+    oi.product_name,
+    oi.quantity,
+    oi.unit_price,
+    oi.line_amount
+from "warehouse"."main"."stg_order_items" oi
+join "warehouse"."main"."stg_orders" o on oi.order_id = o.order_id
+where o.is_test = false
+  );
+
+[0m17:08:48.623510 [debug] [Thread-2 (]: Using duckdb connection "model.self_serve_analytics.dim_customers"
+[0m17:08:48.624380 [debug] [Thread-2 (]: On model.self_serve_analytics.dim_customers: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "self_serve_analytics", "target_name": "dev", "node_id": "model.self_serve_analytics.dim_customers"} */
+
+  
+  create view "warehouse"."main"."dim_customers__dbt_tmp" as (
+    select
+    c.customer_id,
+    c.signup_date,
+    c.country,
+    c.email_domain,
+    c.marketing_opt_in,
+    c.is_disposable_email,
+    not c.is_disposable_email as is_real_customer
+from "warehouse"."main"."stg_customers" c
+  );
+
+[0m17:08:48.625433 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m17:08:48.630047 [debug] [Thread-1 (]: Using duckdb connection "model.self_serve_analytics.fct_order_items"
+[0m17:08:48.630919 [debug] [Thread-2 (]: SQL status: OK in 0.006 seconds
+[0m17:08:48.631518 [debug] [Thread-1 (]: On model.self_serve_analytics.fct_order_items: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "self_serve_analytics", "target_name": "dev", "node_id": "model.self_serve_analytics.fct_order_items"} */
+alter view "warehouse"."main"."fct_order_items" rename to "fct_order_items__dbt_backup"
+[0m17:08:48.635826 [debug] [Thread-2 (]: Using duckdb connection "model.self_serve_analytics.dim_customers"
+[0m17:08:48.636641 [debug] [Thread-2 (]: On model.self_serve_analytics.dim_customers: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "self_serve_analytics", "target_name": "dev", "node_id": "model.self_serve_analytics.dim_customers"} */
+alter view "warehouse"."main"."dim_customers" rename to "dim_customers__dbt_backup"
+[0m17:08:48.637323 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m17:08:48.641276 [debug] [Thread-1 (]: Using duckdb connection "model.self_serve_analytics.fct_order_items"
+[0m17:08:48.641925 [debug] [Thread-2 (]: SQL status: OK in 0.005 seconds
+[0m17:08:48.642406 [debug] [Thread-1 (]: On model.self_serve_analytics.fct_order_items: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "self_serve_analytics", "target_name": "dev", "node_id": "model.self_serve_analytics.fct_order_items"} */
+alter view "warehouse"."main"."fct_order_items__dbt_tmp" rename to "fct_order_items"
+[0m17:08:48.646733 [debug] [Thread-2 (]: Using duckdb connection "model.self_serve_analytics.dim_customers"
+[0m17:08:48.648134 [debug] [Thread-2 (]: On model.self_serve_analytics.dim_customers: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "self_serve_analytics", "target_name": "dev", "node_id": "model.self_serve_analytics.dim_customers"} */
+alter view "warehouse"."main"."dim_customers__dbt_tmp" rename to "dim_customers"
+[0m17:08:48.649203 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m17:08:48.653155 [debug] [Thread-1 (]: On model.self_serve_analytics.fct_order_items: COMMIT
+[0m17:08:48.653912 [debug] [Thread-2 (]: SQL status: OK in 0.003 seconds
+[0m17:08:48.654686 [debug] [Thread-1 (]: Using duckdb connection "model.self_serve_analytics.fct_order_items"
+[0m17:08:48.657775 [debug] [Thread-2 (]: On model.self_serve_analytics.dim_customers: COMMIT
+[0m17:08:48.658851 [debug] [Thread-1 (]: On model.self_serve_analytics.fct_order_items: COMMIT
+[0m17:08:48.659846 [debug] [Thread-2 (]: Using duckdb connection "model.self_serve_analytics.dim_customers"
+[0m17:08:48.661211 [debug] [Thread-2 (]: On model.self_serve_analytics.dim_customers: COMMIT
+[0m17:08:48.662560 [debug] [Thread-1 (]: SQL status: OK in 0.002 seconds
+[0m17:08:48.663499 [debug] [Thread-2 (]: SQL status: OK in 0.001 seconds
+[0m17:08:48.669715 [debug] [Thread-1 (]: Using duckdb connection "model.self_serve_analytics.fct_order_items"
+[0m17:08:48.675575 [debug] [Thread-2 (]: Using duckdb connection "model.self_serve_analytics.dim_customers"
+[0m17:08:48.676312 [debug] [Thread-1 (]: On model.self_serve_analytics.fct_order_items: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "self_serve_analytics", "target_name": "dev", "node_id": "model.self_serve_analytics.fct_order_items"} */
+
+      drop view if exists "warehouse"."main"."fct_order_items__dbt_backup" cascade
+    
+[0m17:08:48.676960 [debug] [Thread-2 (]: On model.self_serve_analytics.dim_customers: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "self_serve_analytics", "target_name": "dev", "node_id": "model.self_serve_analytics.dim_customers"} */
+
+      drop view if exists "warehouse"."main"."dim_customers__dbt_backup" cascade
+    
+[0m17:08:48.678372 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m17:08:48.678952 [debug] [Thread-2 (]: SQL status: OK in 0.001 seconds
+[0m17:08:48.681179 [debug] [Thread-1 (]: On model.self_serve_analytics.fct_order_items: Close
+[0m17:08:48.683728 [debug] [Thread-2 (]: On model.self_serve_analytics.dim_customers: Close
+[0m17:08:48.684727 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '836baf0c-ed01-4117-9b0b-a6976fe69056', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10eed3fd0>]}
+[0m17:08:48.685778 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '836baf0c-ed01-4117-9b0b-a6976fe69056', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10ecc0c10>]}
+[0m17:08:48.689366 [info ] [Thread-1 (]: 6 of 7 OK created sql view model main.fct_order_items .......................... [[32mOK[0m in 0.12s]
+[0m17:08:48.690816 [info ] [Thread-2 (]: 5 of 7 OK created sql view model main.dim_customers ............................ [[32mOK[0m in 0.12s]
+[0m17:08:48.693475 [debug] [Thread-1 (]: Finished running node model.self_serve_analytics.fct_order_items
+[0m17:08:48.694491 [debug] [Thread-2 (]: Finished running node model.self_serve_analytics.dim_customers
+[0m17:08:48.696031 [debug] [Thread-3 (]: Began running node model.self_serve_analytics.fct_orders_net
+[0m17:08:48.697523 [info ] [Thread-3 (]: 7 of 7 START sql view model main.fct_orders_net ................................ [RUN]
+[0m17:08:48.698237 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly model.self_serve_analytics.stg_orders, now model.self_serve_analytics.fct_orders_net)
+[0m17:08:48.698787 [debug] [Thread-3 (]: Began compiling node model.self_serve_analytics.fct_orders_net
+[0m17:08:48.703391 [debug] [Thread-3 (]: Writing injected SQL for node "model.self_serve_analytics.fct_orders_net"
+[0m17:08:48.727298 [debug] [Thread-3 (]: Began executing node model.self_serve_analytics.fct_orders_net
+[0m17:08:48.737938 [debug] [Thread-3 (]: Writing runtime sql for node "model.self_serve_analytics.fct_orders_net"
+[0m17:08:48.739122 [debug] [Thread-3 (]: Using duckdb connection "model.self_serve_analytics.fct_orders_net"
+[0m17:08:48.739776 [debug] [Thread-3 (]: On model.self_serve_analytics.fct_orders_net: BEGIN
+[0m17:08:48.740473 [debug] [Thread-3 (]: Opening a new connection, currently in state closed
+[0m17:08:48.741358 [debug] [Thread-3 (]: SQL status: OK in 0.001 seconds
+[0m17:08:48.741992 [debug] [Thread-3 (]: Using duckdb connection "model.self_serve_analytics.fct_orders_net"
+[0m17:08:48.742600 [debug] [Thread-3 (]: On model.self_serve_analytics.fct_orders_net: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "self_serve_analytics", "target_name": "dev", "node_id": "model.self_serve_analytics.fct_orders_net"} */
+
+  
+  create view "warehouse"."main"."fct_orders_net__dbt_tmp" as (
+    with gross as (
+    select
+        order_id,
+        customer_id,
+        order_date,
+        status,
+        sum(line_amount) as gross_order_amount
+    from "warehouse"."main"."fct_order_items"
+    group by 1, 2, 3, 4
+),
+refunded as (
+    select order_id, sum(refund_amount) as refund_amount
+    from "warehouse"."main"."stg_refunds"
+    group by 1
+)
+select
+    g.order_id,
+    g.customer_id,
+    g.order_date,
+    g.status,
+    g.gross_order_amount,
+    coalesce(r.refund_amount, 0) as refund_amount,
+    g.gross_order_amount - coalesce(r.refund_amount, 0) as net_order_amount
+from gross g
+left join refunded r on g.order_id = r.order_id
+where g.status != 'cancelled'
+  );
+
+[0m17:08:48.745512 [debug] [Thread-3 (]: SQL status: OK in 0.002 seconds
+[0m17:08:48.751002 [debug] [Thread-3 (]: Using duckdb connection "model.self_serve_analytics.fct_orders_net"
+[0m17:08:48.751647 [debug] [Thread-3 (]: On model.self_serve_analytics.fct_orders_net: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "self_serve_analytics", "target_name": "dev", "node_id": "model.self_serve_analytics.fct_orders_net"} */
+alter view "warehouse"."main"."fct_orders_net" rename to "fct_orders_net__dbt_backup"
+[0m17:08:48.752614 [debug] [Thread-3 (]: SQL status: OK in 0.000 seconds
+[0m17:08:48.758611 [debug] [Thread-3 (]: Using duckdb connection "model.self_serve_analytics.fct_orders_net"
+[0m17:08:48.761018 [debug] [Thread-3 (]: On model.self_serve_analytics.fct_orders_net: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "self_serve_analytics", "target_name": "dev", "node_id": "model.self_serve_analytics.fct_orders_net"} */
+alter view "warehouse"."main"."fct_orders_net__dbt_tmp" rename to "fct_orders_net"
+[0m17:08:48.762236 [debug] [Thread-3 (]: SQL status: OK in 0.000 seconds
+[0m17:08:48.768291 [debug] [Thread-3 (]: On model.self_serve_analytics.fct_orders_net: COMMIT
+[0m17:08:48.769215 [debug] [Thread-3 (]: Using duckdb connection "model.self_serve_analytics.fct_orders_net"
+[0m17:08:48.770029 [debug] [Thread-3 (]: On model.self_serve_analytics.fct_orders_net: COMMIT
+[0m17:08:48.771565 [debug] [Thread-3 (]: SQL status: OK in 0.001 seconds
+[0m17:08:48.775797 [debug] [Thread-3 (]: Using duckdb connection "model.self_serve_analytics.fct_orders_net"
+[0m17:08:48.777100 [debug] [Thread-3 (]: On model.self_serve_analytics.fct_orders_net: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "self_serve_analytics", "target_name": "dev", "node_id": "model.self_serve_analytics.fct_orders_net"} */
+
+      drop view if exists "warehouse"."main"."fct_orders_net__dbt_backup" cascade
+    
+[0m17:08:48.778447 [debug] [Thread-3 (]: SQL status: OK in 0.001 seconds
+[0m17:08:48.780384 [debug] [Thread-3 (]: On model.self_serve_analytics.fct_orders_net: Close
+[0m17:08:48.781309 [debug] [Thread-3 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '836baf0c-ed01-4117-9b0b-a6976fe69056', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10eeea890>]}
+[0m17:08:48.782167 [info ] [Thread-3 (]: 7 of 7 OK created sql view model main.fct_orders_net ........................... [[32mOK[0m in 0.08s]
+[0m17:08:48.782961 [debug] [Thread-3 (]: Finished running node model.self_serve_analytics.fct_orders_net
+[0m17:08:48.784647 [debug] [MainThread]: Using duckdb connection "master"
+[0m17:08:48.785145 [debug] [MainThread]: On master: BEGIN
+[0m17:08:48.785579 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m17:08:48.786349 [debug] [MainThread]: SQL status: OK in 0.001 seconds
+[0m17:08:48.786811 [debug] [MainThread]: On master: COMMIT
+[0m17:08:48.787307 [debug] [MainThread]: Using duckdb connection "master"
+[0m17:08:48.787745 [debug] [MainThread]: On master: COMMIT
+[0m17:08:48.788721 [debug] [MainThread]: SQL status: OK in 0.000 seconds
+[0m17:08:48.789539 [debug] [MainThread]: On master: Close
+[0m17:08:48.790276 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m17:08:48.790736 [debug] [MainThread]: Connection 'model.self_serve_analytics.fct_order_items' was properly closed.
+[0m17:08:48.791164 [debug] [MainThread]: Connection 'model.self_serve_analytics.dim_customers' was properly closed.
+[0m17:08:48.791579 [debug] [MainThread]: Connection 'model.self_serve_analytics.fct_orders_net' was properly closed.
+[0m17:08:48.791984 [debug] [MainThread]: Connection 'model.self_serve_analytics.stg_refunds' was properly closed.
+[0m17:08:48.792534 [info ] [MainThread]: 
+[0m17:08:48.793147 [info ] [MainThread]: Finished running 7 view models in 0 hours 0 minutes and 0.79 seconds (0.79s).
+[0m17:08:48.795189 [debug] [MainThread]: Command end result
+[0m17:08:48.852274 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/dipasmitadebroy/Documents/Artificial_Intelligence/ml_projects/self-serve-analytics-demo/dbt_analytics/target/manifest.json
+[0m17:08:48.854905 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/dipasmitadebroy/Documents/Artificial_Intelligence/ml_projects/self-serve-analytics-demo/dbt_analytics/target/semantic_manifest.json
+[0m17:08:48.867110 [debug] [MainThread]: Wrote artifact RunExecutionResult to /Users/dipasmitadebroy/Documents/Artificial_Intelligence/ml_projects/self-serve-analytics-demo/dbt_analytics/target/run_results.json
+[0m17:08:48.867668 [info ] [MainThread]: 
+[0m17:08:48.868234 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m17:08:48.868725 [info ] [MainThread]: 
+[0m17:08:48.869252 [info ] [MainThread]: Done. PASS=7 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=7
+[0m17:08:48.873035 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": true, "command_wall_clock_time": 2.7611172, "process_in_blocks": "0", "process_kernel_time": 0.83238, "process_mem_max_rss": "150446080", "process_out_blocks": "0", "process_user_time": 4.350158}
+[0m17:08:48.874098 [debug] [MainThread]: Command `dbt run` succeeded at 17:08:48.873901 after 2.76 seconds
+[0m17:08:48.875096 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10ded2f90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10958a5d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109721710>]}
+[0m17:08:48.875694 [debug] [MainThread]: Flushing usage events
+[0m17:08:49.246158 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m17:12:58.083279 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1054364d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x105516250>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x105516850>]}
+
+
+============================== 17:12:58.090416 | 0d27de0c-aa57-43c4-a01d-6e223963a33c ==============================
+[0m17:12:58.090416 [info ] [MainThread]: Running with dbt=1.11.11
+[0m17:12:58.091298 [debug] [MainThread]: running dbt with arguments {'version_check': 'True', 'profiles_dir': '/Users/dipasmitadebroy/Documents/Artificial_Intelligence/ml_projects/self-serve-analytics-demo/dbt_analytics', 'log_format': 'default', 'fail_fast': 'False', 'indirect_selection': 'eager', 'cache_selected_only': 'False', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'no_print': 'None', 'debug': 'False', 'invocation_command': 'dbt test', 'send_anonymous_usage_stats': 'True', 'printer_width': '80', 'empty': 'None', 'warn_error': 'None', 'log_path': '/Users/dipasmitadebroy/Documents/Artificial_Intelligence/ml_projects/self-serve-analytics-demo/dbt_analytics/logs', 'use_colors': 'True', 'introspect': 'True', 'static_parser': 'True', 'use_experimental_parser': 'False', 'partial_parse': 'True', 'target_path': 'None', 'quiet': 'False', 'write_json': 'True', 'log_cache_events': 'False'}
+[0m17:12:58.611246 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '0d27de0c-aa57-43c4-a01d-6e223963a33c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1054cd050>]}
+[0m17:12:58.682863 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '0d27de0c-aa57-43c4-a01d-6e223963a33c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1054e83d0>]}
+[0m17:12:58.718980 [info ] [MainThread]: Registered adapter: duckdb=1.10.1
+[0m17:12:58.858541 [debug] [MainThread]: checksum: 30a8cc8fdcbf66701b0944d4ccce3fa46dd04b61e5df68b9f16d57b2e0e3f0be, vars: {}, profile: , target: , version: 1.11.11
+[0m17:12:59.031381 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 1 files added, 0 files changed.
+[0m17:12:59.033322 [debug] [MainThread]: Partial parsing: added file: self_serve_analytics://models/marts/schema.yml
+[0m17:12:59.273678 [warn ] [MainThread]: [[33mWARNING[0m][MissingArgumentsPropertyInGenericTestDeprecation]: Deprecated
+functionality
+Found top-level arguments to test `relationships` defined on 'fct_orders_net' in
+package 'self_serve_analytics' (models/marts/schema.yml). Arguments to generic
+tests should be nested under the `arguments` property.
+[0m17:12:59.274347 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'deprecation', 'label': '0d27de0c-aa57-43c4-a01d-6e223963a33c', 'property_': 'warn', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10555ac50>]}
+[0m17:12:59.406823 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '0d27de0c-aa57-43c4-a01d-6e223963a33c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x105435090>]}
+[0m17:12:59.506982 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/dipasmitadebroy/Documents/Artificial_Intelligence/ml_projects/self-serve-analytics-demo/dbt_analytics/target/manifest.json
+[0m17:12:59.510071 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/dipasmitadebroy/Documents/Artificial_Intelligence/ml_projects/self-serve-analytics-demo/dbt_analytics/target/semantic_manifest.json
+[0m17:12:59.539373 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '0d27de0c-aa57-43c4-a01d-6e223963a33c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x105de7e10>]}
+[0m17:12:59.540032 [info ] [MainThread]: Found 7 models, 12 data tests, 5 sources, 485 macros
+[0m17:12:59.540500 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '0d27de0c-aa57-43c4-a01d-6e223963a33c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x105bd1090>]}
+[0m17:12:59.543387 [info ] [MainThread]: 
+[0m17:12:59.543883 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m17:12:59.544433 [info ] [MainThread]: 
+[0m17:12:59.545126 [debug] [MainThread]: Acquiring new duckdb connection 'master'
+[0m17:12:59.551374 [debug] [ThreadPool]: Acquiring new duckdb connection 'list_warehouse_main'
+[0m17:12:59.622636 [debug] [ThreadPool]: Using duckdb connection "list_warehouse_main"
+[0m17:12:59.623168 [debug] [ThreadPool]: On list_warehouse_main: BEGIN
+[0m17:12:59.623675 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m17:12:59.651303 [debug] [ThreadPool]: SQL status: OK in 0.028 seconds
+[0m17:12:59.678321 [debug] [ThreadPool]: Using duckdb connection "list_warehouse_main"
+[0m17:12:59.678940 [debug] [ThreadPool]: On list_warehouse_main: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "self_serve_analytics", "target_name": "dev", "connection_name": "list_warehouse_main"} */
+select
+      'warehouse' as database,
+      table_name as name,
+      table_schema as schema,
+      CASE table_type
+        WHEN 'BASE TABLE' THEN 'table'
+        WHEN 'VIEW' THEN 'view'
+        WHEN 'LOCAL TEMPORARY' THEN 'table'
+        END as type
+    from system.information_schema.tables
+    where lower(table_schema) = 'main'
+    and lower(table_catalog) = 'warehouse'
+  
+[0m17:12:59.697677 [debug] [ThreadPool]: SQL status: OK in 0.018 seconds
+[0m17:12:59.699658 [debug] [ThreadPool]: On list_warehouse_main: ROLLBACK
+[0m17:12:59.700833 [debug] [ThreadPool]: Failed to rollback 'list_warehouse_main'
+[0m17:12:59.701409 [debug] [ThreadPool]: On list_warehouse_main: Close
+[0m17:12:59.704823 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '0d27de0c-aa57-43c4-a01d-6e223963a33c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1054bb150>]}
+[0m17:12:59.705506 [debug] [MainThread]: Using duckdb connection "master"
+[0m17:12:59.706300 [debug] [MainThread]: On master: BEGIN
+[0m17:12:59.707210 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m17:12:59.708550 [debug] [MainThread]: SQL status: OK in 0.001 seconds
+[0m17:12:59.709238 [debug] [MainThread]: On master: COMMIT
+[0m17:12:59.710249 [debug] [MainThread]: Using duckdb connection "master"
+[0m17:12:59.713310 [debug] [MainThread]: On master: COMMIT
+[0m17:12:59.713989 [debug] [MainThread]: SQL status: OK in 0.000 seconds
+[0m17:12:59.714417 [debug] [MainThread]: On master: Close
+[0m17:12:59.719158 [debug] [Thread-1 (]: Began running node test.self_serve_analytics.accepted_values_fct_orders_net_status__completed__pending.6d2b945c37
+[0m17:12:59.719762 [debug] [Thread-2 (]: Began running node test.self_serve_analytics.not_null_dim_customers_customer_id.dd91cd1c8d
+[0m17:12:59.720586 [debug] [Thread-3 (]: Began running node test.self_serve_analytics.not_null_dim_customers_is_real_customer.ad34852c9f
+[0m17:12:59.721092 [debug] [Thread-4 (]: Began running node test.self_serve_analytics.not_null_fct_order_items_order_id.e887a2de02
+[0m17:12:59.729836 [info ] [Thread-1 (]: 1 of 12 START test accepted_values_fct_orders_net_status__completed__pending ... [RUN]
+[0m17:12:59.730583 [info ] [Thread-2 (]: 2 of 12 START test not_null_dim_customers_customer_id .......................... [RUN]
+[0m17:12:59.731626 [info ] [Thread-3 (]: 3 of 12 START test not_null_dim_customers_is_real_customer ..................... [RUN]
+[0m17:12:59.732284 [info ] [Thread-4 (]: 4 of 12 START test not_null_fct_order_items_order_id ........................... [RUN]
+[0m17:12:59.732922 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_warehouse_main, now test.self_serve_analytics.accepted_values_fct_orders_net_status__completed__pending.6d2b945c37)
+[0m17:12:59.733621 [debug] [Thread-2 (]: Acquiring new duckdb connection 'test.self_serve_analytics.not_null_dim_customers_customer_id.dd91cd1c8d'
+[0m17:12:59.734280 [debug] [Thread-3 (]: Acquiring new duckdb connection 'test.self_serve_analytics.not_null_dim_customers_is_real_customer.ad34852c9f'
+[0m17:12:59.734945 [debug] [Thread-4 (]: Acquiring new duckdb connection 'test.self_serve_analytics.not_null_fct_order_items_order_id.e887a2de02'
+[0m17:12:59.735544 [debug] [Thread-1 (]: Began compiling node test.self_serve_analytics.accepted_values_fct_orders_net_status__completed__pending.6d2b945c37
+[0m17:12:59.736278 [debug] [Thread-2 (]: Began compiling node test.self_serve_analytics.not_null_dim_customers_customer_id.dd91cd1c8d
+[0m17:12:59.736934 [debug] [Thread-3 (]: Began compiling node test.self_serve_analytics.not_null_dim_customers_is_real_customer.ad34852c9f
+[0m17:12:59.738531 [debug] [Thread-4 (]: Began compiling node test.self_serve_analytics.not_null_fct_order_items_order_id.e887a2de02
+[0m17:12:59.751465 [debug] [Thread-1 (]: Writing injected SQL for node "test.self_serve_analytics.accepted_values_fct_orders_net_status__completed__pending.6d2b945c37"
+[0m17:12:59.765481 [debug] [Thread-2 (]: Writing injected SQL for node "test.self_serve_analytics.not_null_dim_customers_customer_id.dd91cd1c8d"
+[0m17:12:59.772714 [debug] [Thread-3 (]: Writing injected SQL for node "test.self_serve_analytics.not_null_dim_customers_is_real_customer.ad34852c9f"
+[0m17:12:59.779069 [debug] [Thread-4 (]: Writing injected SQL for node "test.self_serve_analytics.not_null_fct_order_items_order_id.e887a2de02"
+[0m17:12:59.780885 [debug] [Thread-1 (]: Began executing node test.self_serve_analytics.accepted_values_fct_orders_net_status__completed__pending.6d2b945c37
+[0m17:12:59.792124 [debug] [Thread-2 (]: Began executing node test.self_serve_analytics.not_null_dim_customers_customer_id.dd91cd1c8d
+[0m17:12:59.804687 [debug] [Thread-3 (]: Began executing node test.self_serve_analytics.not_null_dim_customers_is_real_customer.ad34852c9f
+[0m17:12:59.809743 [debug] [Thread-1 (]: Writing runtime sql for node "test.self_serve_analytics.accepted_values_fct_orders_net_status__completed__pending.6d2b945c37"
+[0m17:12:59.813262 [debug] [Thread-2 (]: Writing runtime sql for node "test.self_serve_analytics.not_null_dim_customers_customer_id.dd91cd1c8d"
+[0m17:12:59.813803 [debug] [Thread-4 (]: Began executing node test.self_serve_analytics.not_null_fct_order_items_order_id.e887a2de02
+[0m17:12:59.817478 [debug] [Thread-3 (]: Writing runtime sql for node "test.self_serve_analytics.not_null_dim_customers_is_real_customer.ad34852c9f"
+[0m17:12:59.822155 [debug] [Thread-4 (]: Writing runtime sql for node "test.self_serve_analytics.not_null_fct_order_items_order_id.e887a2de02"
+[0m17:12:59.823255 [debug] [Thread-1 (]: Using duckdb connection "test.self_serve_analytics.accepted_values_fct_orders_net_status__completed__pending.6d2b945c37"
+[0m17:12:59.824275 [debug] [Thread-2 (]: Using duckdb connection "test.self_serve_analytics.not_null_dim_customers_customer_id.dd91cd1c8d"
+[0m17:12:59.825549 [debug] [Thread-1 (]: On test.self_serve_analytics.accepted_values_fct_orders_net_status__completed__pending.6d2b945c37: BEGIN
+[0m17:12:59.826573 [debug] [Thread-3 (]: Using duckdb connection "test.self_serve_analytics.not_null_dim_customers_is_real_customer.ad34852c9f"
+[0m17:12:59.834355 [debug] [Thread-2 (]: On test.self_serve_analytics.not_null_dim_customers_customer_id.dd91cd1c8d: BEGIN
+[0m17:12:59.835196 [debug] [Thread-4 (]: Using duckdb connection "test.self_serve_analytics.not_null_fct_order_items_order_id.e887a2de02"
+[0m17:12:59.835735 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m17:12:59.836469 [debug] [Thread-3 (]: On test.self_serve_analytics.not_null_dim_customers_is_real_customer.ad34852c9f: BEGIN
+[0m17:12:59.836987 [debug] [Thread-2 (]: Opening a new connection, currently in state init
+[0m17:12:59.837852 [debug] [Thread-4 (]: On test.self_serve_analytics.not_null_fct_order_items_order_id.e887a2de02: BEGIN
+[0m17:12:59.838756 [debug] [Thread-3 (]: Opening a new connection, currently in state init
+[0m17:12:59.840094 [debug] [Thread-1 (]: SQL status: OK in 0.004 seconds
+[0m17:12:59.840647 [debug] [Thread-4 (]: Opening a new connection, currently in state init
+[0m17:12:59.841203 [debug] [Thread-2 (]: SQL status: OK in 0.004 seconds
+[0m17:12:59.842091 [debug] [Thread-1 (]: Using duckdb connection "test.self_serve_analytics.accepted_values_fct_orders_net_status__completed__pending.6d2b945c37"
+[0m17:12:59.842715 [debug] [Thread-3 (]: SQL status: OK in 0.004 seconds
+[0m17:12:59.843579 [debug] [Thread-2 (]: Using duckdb connection "test.self_serve_analytics.not_null_dim_customers_customer_id.dd91cd1c8d"
+[0m17:12:59.844144 [debug] [Thread-4 (]: SQL status: OK in 0.004 seconds
+[0m17:12:59.844805 [debug] [Thread-1 (]: On test.self_serve_analytics.accepted_values_fct_orders_net_status__completed__pending.6d2b945c37: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "self_serve_analytics", "target_name": "dev", "node_id": "test.self_serve_analytics.accepted_values_fct_orders_net_status__completed__pending.6d2b945c37"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+with all_values as (
+
+    select
+        status as value_field,
+        count(*) as n_records
+
+    from "warehouse"."main"."fct_orders_net"
+    group by status
+
+)
+
+select *
+from all_values
+where value_field not in (
+    'completed','pending'
+)
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m17:12:59.845489 [debug] [Thread-3 (]: Using duckdb connection "test.self_serve_analytics.not_null_dim_customers_is_real_customer.ad34852c9f"
+[0m17:12:59.846111 [debug] [Thread-2 (]: On test.self_serve_analytics.not_null_dim_customers_customer_id.dd91cd1c8d: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "self_serve_analytics", "target_name": "dev", "node_id": "test.self_serve_analytics.not_null_dim_customers_customer_id.dd91cd1c8d"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select customer_id
+from "warehouse"."main"."dim_customers"
+where customer_id is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m17:12:59.846807 [debug] [Thread-4 (]: Using duckdb connection "test.self_serve_analytics.not_null_fct_order_items_order_id.e887a2de02"
+[0m17:12:59.847836 [debug] [Thread-3 (]: On test.self_serve_analytics.not_null_dim_customers_is_real_customer.ad34852c9f: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "self_serve_analytics", "target_name": "dev", "node_id": "test.self_serve_analytics.not_null_dim_customers_is_real_customer.ad34852c9f"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select is_real_customer
+from "warehouse"."main"."dim_customers"
+where is_real_customer is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m17:12:59.848844 [debug] [Thread-4 (]: On test.self_serve_analytics.not_null_fct_order_items_order_id.e887a2de02: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "self_serve_analytics", "target_name": "dev", "node_id": "test.self_serve_analytics.not_null_fct_order_items_order_id.e887a2de02"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select order_id
+from "warehouse"."main"."fct_order_items"
+where order_id is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m17:12:59.852048 [debug] [Thread-2 (]: SQL status: OK in 0.003 seconds
+[0m17:12:59.857832 [debug] [Thread-2 (]: On test.self_serve_analytics.not_null_dim_customers_customer_id.dd91cd1c8d: ROLLBACK
+[0m17:12:59.858630 [debug] [Thread-4 (]: SQL status: OK in 0.009 seconds
+[0m17:12:59.859182 [debug] [Thread-3 (]: SQL status: OK in 0.010 seconds
+[0m17:12:59.859877 [debug] [Thread-2 (]: Failed to rollback 'test.self_serve_analytics.not_null_dim_customers_customer_id.dd91cd1c8d'
+[0m17:12:59.860498 [debug] [Thread-1 (]: SQL status: OK in 0.013 seconds
+[0m17:12:59.862544 [debug] [Thread-4 (]: On test.self_serve_analytics.not_null_fct_order_items_order_id.e887a2de02: ROLLBACK
+[0m17:12:59.864296 [debug] [Thread-3 (]: On test.self_serve_analytics.not_null_dim_customers_is_real_customer.ad34852c9f: ROLLBACK
+[0m17:12:59.869406 [debug] [Thread-2 (]: On test.self_serve_analytics.not_null_dim_customers_customer_id.dd91cd1c8d: Close
+[0m17:12:59.870802 [debug] [Thread-4 (]: Failed to rollback 'test.self_serve_analytics.not_null_fct_order_items_order_id.e887a2de02'
+[0m17:12:59.872861 [debug] [Thread-1 (]: On test.self_serve_analytics.accepted_values_fct_orders_net_status__completed__pending.6d2b945c37: ROLLBACK
+[0m17:12:59.873706 [debug] [Thread-3 (]: Failed to rollback 'test.self_serve_analytics.not_null_dim_customers_is_real_customer.ad34852c9f'
+[0m17:12:59.874617 [info ] [Thread-2 (]: 2 of 12 PASS not_null_dim_customers_customer_id ................................ [[32mPASS[0m in 0.14s]
+[0m17:12:59.875309 [debug] [Thread-4 (]: On test.self_serve_analytics.not_null_fct_order_items_order_id.e887a2de02: Close
+[0m17:12:59.877542 [debug] [Thread-1 (]: Failed to rollback 'test.self_serve_analytics.accepted_values_fct_orders_net_status__completed__pending.6d2b945c37'
+[0m17:12:59.878334 [debug] [Thread-3 (]: On test.self_serve_analytics.not_null_dim_customers_is_real_customer.ad34852c9f: Close
+[0m17:12:59.879257 [debug] [Thread-2 (]: Finished running node test.self_serve_analytics.not_null_dim_customers_customer_id.dd91cd1c8d
+[0m17:12:59.880719 [info ] [Thread-4 (]: 4 of 12 PASS not_null_fct_order_items_order_id ................................. [[32mPASS[0m in 0.15s]
+[0m17:12:59.882732 [debug] [Thread-1 (]: On test.self_serve_analytics.accepted_values_fct_orders_net_status__completed__pending.6d2b945c37: Close
+[0m17:12:59.885759 [info ] [Thread-3 (]: 3 of 12 PASS not_null_dim_customers_is_real_customer ........................... [[32mPASS[0m in 0.15s]
+[0m17:12:59.886916 [debug] [Thread-2 (]: Began running node test.self_serve_analytics.not_null_fct_order_items_order_item_id.dbaab21f55
+[0m17:12:59.888429 [debug] [Thread-4 (]: Finished running node test.self_serve_analytics.not_null_fct_order_items_order_id.e887a2de02
+[0m17:12:59.889814 [info ] [Thread-1 (]: 1 of 12 PASS accepted_values_fct_orders_net_status__completed__pending ......... [[32mPASS[0m in 0.16s]
+[0m17:12:59.891432 [debug] [Thread-3 (]: Finished running node test.self_serve_analytics.not_null_dim_customers_is_real_customer.ad34852c9f
+[0m17:12:59.892548 [info ] [Thread-2 (]: 5 of 12 START test not_null_fct_order_items_order_item_id ...................... [RUN]
+[0m17:12:59.893691 [debug] [Thread-4 (]: Began running node test.self_serve_analytics.not_null_fct_order_items_product_name.728882a0d6
+[0m17:12:59.894885 [debug] [Thread-1 (]: Finished running node test.self_serve_analytics.accepted_values_fct_orders_net_status__completed__pending.6d2b945c37
+[0m17:12:59.895660 [debug] [Thread-3 (]: Began running node test.self_serve_analytics.not_null_fct_orders_net_customer_id.56602fae0f
+[0m17:12:59.896464 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.self_serve_analytics.not_null_dim_customers_customer_id.dd91cd1c8d, now test.self_serve_analytics.not_null_fct_order_items_order_item_id.dbaab21f55)
+[0m17:12:59.897173 [info ] [Thread-4 (]: 6 of 12 START test not_null_fct_order_items_product_name ....................... [RUN]
+[0m17:12:59.900162 [debug] [Thread-1 (]: Began running node test.self_serve_analytics.not_null_fct_orders_net_order_id.cf72cd75c1
+[0m17:12:59.901026 [info ] [Thread-3 (]: 7 of 12 START test not_null_fct_orders_net_customer_id ......................... [RUN]
+[0m17:12:59.902028 [debug] [Thread-2 (]: Began compiling node test.self_serve_analytics.not_null_fct_order_items_order_item_id.dbaab21f55
+[0m17:12:59.903142 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly test.self_serve_analytics.not_null_fct_order_items_order_id.e887a2de02, now test.self_serve_analytics.not_null_fct_order_items_product_name.728882a0d6)
+[0m17:12:59.905636 [info ] [Thread-1 (]: 8 of 12 START test not_null_fct_orders_net_order_id ............................ [RUN]
+[0m17:12:59.907677 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly test.self_serve_analytics.not_null_dim_customers_is_real_customer.ad34852c9f, now test.self_serve_analytics.not_null_fct_orders_net_customer_id.56602fae0f)
+[0m17:12:59.913889 [debug] [Thread-2 (]: Writing injected SQL for node "test.self_serve_analytics.not_null_fct_order_items_order_item_id.dbaab21f55"
+[0m17:12:59.914646 [debug] [Thread-4 (]: Began compiling node test.self_serve_analytics.not_null_fct_order_items_product_name.728882a0d6
+[0m17:12:59.915334 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.self_serve_analytics.accepted_values_fct_orders_net_status__completed__pending.6d2b945c37, now test.self_serve_analytics.not_null_fct_orders_net_order_id.cf72cd75c1)
+[0m17:12:59.915907 [debug] [Thread-3 (]: Began compiling node test.self_serve_analytics.not_null_fct_orders_net_customer_id.56602fae0f
+[0m17:12:59.924357 [debug] [Thread-4 (]: Writing injected SQL for node "test.self_serve_analytics.not_null_fct_order_items_product_name.728882a0d6"
+[0m17:12:59.926699 [debug] [Thread-1 (]: Began compiling node test.self_serve_analytics.not_null_fct_orders_net_order_id.cf72cd75c1
+[0m17:12:59.934610 [debug] [Thread-2 (]: Began executing node test.self_serve_analytics.not_null_fct_order_items_order_item_id.dbaab21f55
+[0m17:12:59.934205 [debug] [Thread-3 (]: Writing injected SQL for node "test.self_serve_analytics.not_null_fct_orders_net_customer_id.56602fae0f"
+[0m17:12:59.941954 [debug] [Thread-1 (]: Writing injected SQL for node "test.self_serve_analytics.not_null_fct_orders_net_order_id.cf72cd75c1"
+[0m17:12:59.944748 [debug] [Thread-4 (]: Began executing node test.self_serve_analytics.not_null_fct_order_items_product_name.728882a0d6
+[0m17:12:59.949401 [debug] [Thread-2 (]: Writing runtime sql for node "test.self_serve_analytics.not_null_fct_order_items_order_item_id.dbaab21f55"
+[0m17:12:59.950650 [debug] [Thread-3 (]: Began executing node test.self_serve_analytics.not_null_fct_orders_net_customer_id.56602fae0f
+[0m17:12:59.956803 [debug] [Thread-1 (]: Began executing node test.self_serve_analytics.not_null_fct_orders_net_order_id.cf72cd75c1
+[0m17:12:59.957526 [debug] [Thread-4 (]: Writing runtime sql for node "test.self_serve_analytics.not_null_fct_order_items_product_name.728882a0d6"
+[0m17:12:59.961119 [debug] [Thread-3 (]: Writing runtime sql for node "test.self_serve_analytics.not_null_fct_orders_net_customer_id.56602fae0f"
+[0m17:12:59.966264 [debug] [Thread-1 (]: Writing runtime sql for node "test.self_serve_analytics.not_null_fct_orders_net_order_id.cf72cd75c1"
+[0m17:12:59.967142 [debug] [Thread-2 (]: Using duckdb connection "test.self_serve_analytics.not_null_fct_order_items_order_item_id.dbaab21f55"
+[0m17:12:59.968775 [debug] [Thread-4 (]: Using duckdb connection "test.self_serve_analytics.not_null_fct_order_items_product_name.728882a0d6"
+[0m17:12:59.969375 [debug] [Thread-2 (]: On test.self_serve_analytics.not_null_fct_order_items_order_item_id.dbaab21f55: BEGIN
+[0m17:12:59.970191 [debug] [Thread-3 (]: Using duckdb connection "test.self_serve_analytics.not_null_fct_orders_net_customer_id.56602fae0f"
+[0m17:12:59.970945 [debug] [Thread-1 (]: Using duckdb connection "test.self_serve_analytics.not_null_fct_orders_net_order_id.cf72cd75c1"
+[0m17:12:59.971437 [debug] [Thread-4 (]: On test.self_serve_analytics.not_null_fct_order_items_product_name.728882a0d6: BEGIN
+[0m17:12:59.972006 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m17:12:59.972544 [debug] [Thread-3 (]: On test.self_serve_analytics.not_null_fct_orders_net_customer_id.56602fae0f: BEGIN
+[0m17:12:59.973107 [debug] [Thread-1 (]: On test.self_serve_analytics.not_null_fct_orders_net_order_id.cf72cd75c1: BEGIN
+[0m17:12:59.973741 [debug] [Thread-4 (]: Opening a new connection, currently in state closed
+[0m17:12:59.974681 [debug] [Thread-3 (]: Opening a new connection, currently in state closed
+[0m17:12:59.975341 [debug] [Thread-2 (]: SQL status: OK in 0.003 seconds
+[0m17:12:59.976010 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m17:12:59.977181 [debug] [Thread-4 (]: SQL status: OK in 0.003 seconds
+[0m17:12:59.978066 [debug] [Thread-2 (]: Using duckdb connection "test.self_serve_analytics.not_null_fct_order_items_order_item_id.dbaab21f55"
+[0m17:12:59.979069 [debug] [Thread-3 (]: SQL status: OK in 0.004 seconds
+[0m17:12:59.980159 [debug] [Thread-4 (]: Using duckdb connection "test.self_serve_analytics.not_null_fct_order_items_product_name.728882a0d6"
+[0m17:12:59.980716 [debug] [Thread-1 (]: SQL status: OK in 0.005 seconds
+[0m17:12:59.981324 [debug] [Thread-2 (]: On test.self_serve_analytics.not_null_fct_order_items_order_item_id.dbaab21f55: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "self_serve_analytics", "target_name": "dev", "node_id": "test.self_serve_analytics.not_null_fct_order_items_order_item_id.dbaab21f55"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select order_item_id
+from "warehouse"."main"."fct_order_items"
+where order_item_id is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m17:12:59.981918 [debug] [Thread-3 (]: Using duckdb connection "test.self_serve_analytics.not_null_fct_orders_net_customer_id.56602fae0f"
+[0m17:12:59.982511 [debug] [Thread-4 (]: On test.self_serve_analytics.not_null_fct_order_items_product_name.728882a0d6: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "self_serve_analytics", "target_name": "dev", "node_id": "test.self_serve_analytics.not_null_fct_order_items_product_name.728882a0d6"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select product_name
+from "warehouse"."main"."fct_order_items"
+where product_name is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m17:12:59.983096 [debug] [Thread-1 (]: Using duckdb connection "test.self_serve_analytics.not_null_fct_orders_net_order_id.cf72cd75c1"
+[0m17:12:59.984230 [debug] [Thread-3 (]: On test.self_serve_analytics.not_null_fct_orders_net_customer_id.56602fae0f: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "self_serve_analytics", "target_name": "dev", "node_id": "test.self_serve_analytics.not_null_fct_orders_net_customer_id.56602fae0f"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select customer_id
+from "warehouse"."main"."fct_orders_net"
+where customer_id is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m17:12:59.985368 [debug] [Thread-1 (]: On test.self_serve_analytics.not_null_fct_orders_net_order_id.cf72cd75c1: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "self_serve_analytics", "target_name": "dev", "node_id": "test.self_serve_analytics.not_null_fct_orders_net_order_id.cf72cd75c1"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select order_id
+from "warehouse"."main"."fct_orders_net"
+where order_id is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m17:12:59.989063 [debug] [Thread-2 (]: SQL status: OK in 0.005 seconds
+[0m17:12:59.990858 [debug] [Thread-4 (]: SQL status: OK in 0.006 seconds
+[0m17:12:59.993969 [debug] [Thread-2 (]: On test.self_serve_analytics.not_null_fct_order_items_order_item_id.dbaab21f55: ROLLBACK
+[0m17:12:59.996763 [debug] [Thread-4 (]: On test.self_serve_analytics.not_null_fct_order_items_product_name.728882a0d6: ROLLBACK
+[0m17:12:59.997388 [debug] [Thread-3 (]: SQL status: OK in 0.009 seconds
+[0m17:12:59.998045 [debug] [Thread-1 (]: SQL status: OK in 0.008 seconds
+[0m17:12:59.998774 [debug] [Thread-2 (]: Failed to rollback 'test.self_serve_analytics.not_null_fct_order_items_order_item_id.dbaab21f55'
+[0m17:12:59.999707 [debug] [Thread-4 (]: Failed to rollback 'test.self_serve_analytics.not_null_fct_order_items_product_name.728882a0d6'
+[0m17:13:00.003319 [debug] [Thread-3 (]: On test.self_serve_analytics.not_null_fct_orders_net_customer_id.56602fae0f: ROLLBACK
+[0m17:13:00.005443 [debug] [Thread-1 (]: On test.self_serve_analytics.not_null_fct_orders_net_order_id.cf72cd75c1: ROLLBACK
+[0m17:13:00.006394 [debug] [Thread-2 (]: On test.self_serve_analytics.not_null_fct_order_items_order_item_id.dbaab21f55: Close
+[0m17:13:00.007541 [debug] [Thread-4 (]: On test.self_serve_analytics.not_null_fct_order_items_product_name.728882a0d6: Close
+[0m17:13:00.008704 [debug] [Thread-3 (]: Failed to rollback 'test.self_serve_analytics.not_null_fct_orders_net_customer_id.56602fae0f'
+[0m17:13:00.009522 [debug] [Thread-1 (]: Failed to rollback 'test.self_serve_analytics.not_null_fct_orders_net_order_id.cf72cd75c1'
+[0m17:13:00.010619 [info ] [Thread-2 (]: 5 of 12 PASS not_null_fct_order_items_order_item_id ............................ [[32mPASS[0m in 0.11s]
+[0m17:13:00.011669 [info ] [Thread-4 (]: 6 of 12 PASS not_null_fct_order_items_product_name ............................. [[32mPASS[0m in 0.11s]
+[0m17:13:00.012389 [debug] [Thread-3 (]: On test.self_serve_analytics.not_null_fct_orders_net_customer_id.56602fae0f: Close
+[0m17:13:00.013121 [debug] [Thread-1 (]: On test.self_serve_analytics.not_null_fct_orders_net_order_id.cf72cd75c1: Close
+[0m17:13:00.014458 [debug] [Thread-2 (]: Finished running node test.self_serve_analytics.not_null_fct_order_items_order_item_id.dbaab21f55
+[0m17:13:00.015854 [debug] [Thread-4 (]: Finished running node test.self_serve_analytics.not_null_fct_order_items_product_name.728882a0d6
+[0m17:13:00.017690 [info ] [Thread-3 (]: 7 of 12 PASS not_null_fct_orders_net_customer_id ............................... [[32mPASS[0m in 0.11s]
+[0m17:13:00.019284 [info ] [Thread-1 (]: 8 of 12 PASS not_null_fct_orders_net_order_id .................................. [[32mPASS[0m in 0.10s]
+[0m17:13:00.020451 [debug] [Thread-2 (]: Began running node test.self_serve_analytics.relationships_fct_orders_net_customer_id__customer_id__ref_dim_customers_.85d33de02e
+[0m17:13:00.021735 [debug] [Thread-4 (]: Began running node test.self_serve_analytics.unique_dim_customers_customer_id.15c9f1e2fd
+[0m17:13:00.023207 [debug] [Thread-3 (]: Finished running node test.self_serve_analytics.not_null_fct_orders_net_customer_id.56602fae0f
+[0m17:13:00.024652 [debug] [Thread-1 (]: Finished running node test.self_serve_analytics.not_null_fct_orders_net_order_id.cf72cd75c1
+[0m17:13:00.025732 [info ] [Thread-2 (]: 9 of 12 START test relationships_fct_orders_net_customer_id__customer_id__ref_dim_customers_  [RUN]
+[0m17:13:00.026855 [info ] [Thread-4 (]: 10 of 12 START test unique_dim_customers_customer_id ........................... [RUN]
+[0m17:13:00.028172 [debug] [Thread-3 (]: Began running node test.self_serve_analytics.unique_fct_order_items_order_item_id.0dec5f6768
+[0m17:13:00.029210 [debug] [Thread-1 (]: Began running node test.self_serve_analytics.unique_fct_orders_net_order_id.30f80bcbc9
+[0m17:13:00.030158 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.self_serve_analytics.not_null_fct_order_items_order_item_id.dbaab21f55, now test.self_serve_analytics.relationships_fct_orders_net_customer_id__customer_id__ref_dim_customers_.85d33de02e)
+[0m17:13:00.030783 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly test.self_serve_analytics.not_null_fct_order_items_product_name.728882a0d6, now test.self_serve_analytics.unique_dim_customers_customer_id.15c9f1e2fd)
+[0m17:13:00.031450 [info ] [Thread-3 (]: 11 of 12 START test unique_fct_order_items_order_item_id ....................... [RUN]
+[0m17:13:00.032395 [info ] [Thread-1 (]: 12 of 12 START test unique_fct_orders_net_order_id ............................. [RUN]
+[0m17:13:00.033108 [debug] [Thread-2 (]: Began compiling node test.self_serve_analytics.relationships_fct_orders_net_customer_id__customer_id__ref_dim_customers_.85d33de02e
+[0m17:13:00.033674 [debug] [Thread-4 (]: Began compiling node test.self_serve_analytics.unique_dim_customers_customer_id.15c9f1e2fd
+[0m17:13:00.034458 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly test.self_serve_analytics.not_null_fct_orders_net_customer_id.56602fae0f, now test.self_serve_analytics.unique_fct_order_items_order_item_id.0dec5f6768)
+[0m17:13:00.035244 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.self_serve_analytics.not_null_fct_orders_net_order_id.cf72cd75c1, now test.self_serve_analytics.unique_fct_orders_net_order_id.30f80bcbc9)
+[0m17:13:00.044050 [debug] [Thread-2 (]: Writing injected SQL for node "test.self_serve_analytics.relationships_fct_orders_net_customer_id__customer_id__ref_dim_customers_.85d33de02e"
+[0m17:13:00.051368 [debug] [Thread-3 (]: Began compiling node test.self_serve_analytics.unique_fct_order_items_order_item_id.0dec5f6768
+[0m17:13:00.053912 [debug] [Thread-4 (]: Writing injected SQL for node "test.self_serve_analytics.unique_dim_customers_customer_id.15c9f1e2fd"
+[0m17:13:00.055136 [debug] [Thread-1 (]: Began compiling node test.self_serve_analytics.unique_fct_orders_net_order_id.30f80bcbc9
+[0m17:13:00.063189 [debug] [Thread-3 (]: Writing injected SQL for node "test.self_serve_analytics.unique_fct_order_items_order_item_id.0dec5f6768"
+[0m17:13:00.074418 [debug] [Thread-2 (]: Began executing node test.self_serve_analytics.relationships_fct_orders_net_customer_id__customer_id__ref_dim_customers_.85d33de02e
+[0m17:13:00.082155 [debug] [Thread-1 (]: Writing injected SQL for node "test.self_serve_analytics.unique_fct_orders_net_order_id.30f80bcbc9"
+[0m17:13:00.083067 [debug] [Thread-4 (]: Began executing node test.self_serve_analytics.unique_dim_customers_customer_id.15c9f1e2fd
+[0m17:13:00.087776 [debug] [Thread-2 (]: Writing runtime sql for node "test.self_serve_analytics.relationships_fct_orders_net_customer_id__customer_id__ref_dim_customers_.85d33de02e"
+[0m17:13:00.088609 [debug] [Thread-3 (]: Began executing node test.self_serve_analytics.unique_fct_order_items_order_item_id.0dec5f6768
+[0m17:13:00.092485 [debug] [Thread-4 (]: Writing runtime sql for node "test.self_serve_analytics.unique_dim_customers_customer_id.15c9f1e2fd"
+[0m17:13:00.093391 [debug] [Thread-1 (]: Began executing node test.self_serve_analytics.unique_fct_orders_net_order_id.30f80bcbc9
+[0m17:13:00.097541 [debug] [Thread-3 (]: Writing runtime sql for node "test.self_serve_analytics.unique_fct_order_items_order_item_id.0dec5f6768"
+[0m17:13:00.098228 [debug] [Thread-2 (]: Using duckdb connection "test.self_serve_analytics.relationships_fct_orders_net_customer_id__customer_id__ref_dim_customers_.85d33de02e"
+[0m17:13:00.102098 [debug] [Thread-1 (]: Writing runtime sql for node "test.self_serve_analytics.unique_fct_orders_net_order_id.30f80bcbc9"
+[0m17:13:00.108602 [debug] [Thread-4 (]: Using duckdb connection "test.self_serve_analytics.unique_dim_customers_customer_id.15c9f1e2fd"
+[0m17:13:00.109352 [debug] [Thread-2 (]: On test.self_serve_analytics.relationships_fct_orders_net_customer_id__customer_id__ref_dim_customers_.85d33de02e: BEGIN
+[0m17:13:00.109994 [debug] [Thread-3 (]: Using duckdb connection "test.self_serve_analytics.unique_fct_order_items_order_item_id.0dec5f6768"
+[0m17:13:00.121033 [debug] [Thread-4 (]: On test.self_serve_analytics.unique_dim_customers_customer_id.15c9f1e2fd: BEGIN
+[0m17:13:00.143439 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m17:13:00.146020 [debug] [Thread-1 (]: Using duckdb connection "test.self_serve_analytics.unique_fct_orders_net_order_id.30f80bcbc9"
+[0m17:13:00.146565 [debug] [Thread-3 (]: On test.self_serve_analytics.unique_fct_order_items_order_item_id.0dec5f6768: BEGIN
+[0m17:13:00.147116 [debug] [Thread-4 (]: Opening a new connection, currently in state closed
+[0m17:13:00.147921 [debug] [Thread-1 (]: On test.self_serve_analytics.unique_fct_orders_net_order_id.30f80bcbc9: BEGIN
+[0m17:13:00.148459 [debug] [Thread-2 (]: SQL status: OK in 0.005 seconds
+[0m17:13:00.149099 [debug] [Thread-3 (]: Opening a new connection, currently in state closed
+[0m17:13:00.149912 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m17:13:00.150538 [debug] [Thread-4 (]: SQL status: OK in 0.003 seconds
+[0m17:13:00.151052 [debug] [Thread-2 (]: Using duckdb connection "test.self_serve_analytics.relationships_fct_orders_net_customer_id__customer_id__ref_dim_customers_.85d33de02e"
+[0m17:13:00.152034 [debug] [Thread-3 (]: SQL status: OK in 0.003 seconds
+[0m17:13:00.152479 [debug] [Thread-4 (]: Using duckdb connection "test.self_serve_analytics.unique_dim_customers_customer_id.15c9f1e2fd"
+[0m17:13:00.152945 [debug] [Thread-1 (]: SQL status: OK in 0.003 seconds
+[0m17:13:00.153650 [debug] [Thread-2 (]: On test.self_serve_analytics.relationships_fct_orders_net_customer_id__customer_id__ref_dim_customers_.85d33de02e: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "self_serve_analytics", "target_name": "dev", "node_id": "test.self_serve_analytics.relationships_fct_orders_net_customer_id__customer_id__ref_dim_customers_.85d33de02e"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+with child as (
+    select customer_id as from_field
+    from "warehouse"."main"."fct_orders_net"
+    where customer_id is not null
+),
+
+parent as (
+    select customer_id as to_field
+    from "warehouse"."main"."dim_customers"
+)
+
+select
+    from_field
+
+from child
+left join parent
+    on child.from_field = parent.to_field
+
+where parent.to_field is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m17:13:00.154238 [debug] [Thread-3 (]: Using duckdb connection "test.self_serve_analytics.unique_fct_order_items_order_item_id.0dec5f6768"
+[0m17:13:00.154865 [debug] [Thread-4 (]: On test.self_serve_analytics.unique_dim_customers_customer_id.15c9f1e2fd: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "self_serve_analytics", "target_name": "dev", "node_id": "test.self_serve_analytics.unique_dim_customers_customer_id.15c9f1e2fd"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+select
+    customer_id as unique_field,
+    count(*) as n_records
+
+from "warehouse"."main"."dim_customers"
+where customer_id is not null
+group by customer_id
+having count(*) > 1
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m17:13:00.155424 [debug] [Thread-1 (]: Using duckdb connection "test.self_serve_analytics.unique_fct_orders_net_order_id.30f80bcbc9"
+[0m17:13:00.156318 [debug] [Thread-3 (]: On test.self_serve_analytics.unique_fct_order_items_order_item_id.0dec5f6768: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "self_serve_analytics", "target_name": "dev", "node_id": "test.self_serve_analytics.unique_fct_order_items_order_item_id.0dec5f6768"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+select
+    order_item_id as unique_field,
+    count(*) as n_records
+
+from "warehouse"."main"."fct_order_items"
+where order_item_id is not null
+group by order_item_id
+having count(*) > 1
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m17:13:00.157215 [debug] [Thread-1 (]: On test.self_serve_analytics.unique_fct_orders_net_order_id.30f80bcbc9: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "self_serve_analytics", "target_name": "dev", "node_id": "test.self_serve_analytics.unique_fct_orders_net_order_id.30f80bcbc9"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+select
+    order_id as unique_field,
+    count(*) as n_records
+
+from "warehouse"."main"."fct_orders_net"
+where order_id is not null
+group by order_id
+having count(*) > 1
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m17:13:00.159069 [debug] [Thread-4 (]: SQL status: OK in 0.002 seconds
+[0m17:13:00.161706 [debug] [Thread-4 (]: On test.self_serve_analytics.unique_dim_customers_customer_id.15c9f1e2fd: ROLLBACK
+[0m17:13:00.162548 [debug] [Thread-4 (]: Failed to rollback 'test.self_serve_analytics.unique_dim_customers_customer_id.15c9f1e2fd'
+[0m17:13:00.163418 [debug] [Thread-4 (]: On test.self_serve_analytics.unique_dim_customers_customer_id.15c9f1e2fd: Close
+[0m17:13:00.164626 [debug] [Thread-3 (]: SQL status: OK in 0.007 seconds
+[0m17:13:00.165867 [info ] [Thread-4 (]: 10 of 12 PASS unique_dim_customers_customer_id ................................. [[32mPASS[0m in 0.13s]
+[0m17:13:00.166905 [debug] [Thread-1 (]: SQL status: OK in 0.009 seconds
+[0m17:13:00.167589 [debug] [Thread-2 (]: SQL status: OK in 0.012 seconds
+[0m17:13:00.169881 [debug] [Thread-3 (]: On test.self_serve_analytics.unique_fct_order_items_order_item_id.0dec5f6768: ROLLBACK
+[0m17:13:00.170826 [debug] [Thread-4 (]: Finished running node test.self_serve_analytics.unique_dim_customers_customer_id.15c9f1e2fd
+[0m17:13:00.174509 [debug] [Thread-1 (]: On test.self_serve_analytics.unique_fct_orders_net_order_id.30f80bcbc9: ROLLBACK
+[0m17:13:00.176249 [debug] [Thread-2 (]: On test.self_serve_analytics.relationships_fct_orders_net_customer_id__customer_id__ref_dim_customers_.85d33de02e: ROLLBACK
+[0m17:13:00.177153 [debug] [Thread-3 (]: Failed to rollback 'test.self_serve_analytics.unique_fct_order_items_order_item_id.0dec5f6768'
+[0m17:13:00.179046 [debug] [Thread-1 (]: Failed to rollback 'test.self_serve_analytics.unique_fct_orders_net_order_id.30f80bcbc9'
+[0m17:13:00.180719 [debug] [Thread-2 (]: Failed to rollback 'test.self_serve_analytics.relationships_fct_orders_net_customer_id__customer_id__ref_dim_customers_.85d33de02e'
+[0m17:13:00.181328 [debug] [Thread-3 (]: On test.self_serve_analytics.unique_fct_order_items_order_item_id.0dec5f6768: Close
+[0m17:13:00.181953 [debug] [Thread-1 (]: On test.self_serve_analytics.unique_fct_orders_net_order_id.30f80bcbc9: Close
+[0m17:13:00.182507 [debug] [Thread-2 (]: On test.self_serve_analytics.relationships_fct_orders_net_customer_id__customer_id__ref_dim_customers_.85d33de02e: Close
+[0m17:13:00.183385 [info ] [Thread-3 (]: 11 of 12 PASS unique_fct_order_items_order_item_id ............................. [[32mPASS[0m in 0.15s]
+[0m17:13:00.184248 [info ] [Thread-1 (]: 12 of 12 PASS unique_fct_orders_net_order_id ................................... [[32mPASS[0m in 0.15s]
+[0m17:13:00.185167 [info ] [Thread-2 (]: 9 of 12 PASS relationships_fct_orders_net_customer_id__customer_id__ref_dim_customers_  [[32mPASS[0m in 0.16s]
+[0m17:13:00.185989 [debug] [Thread-3 (]: Finished running node test.self_serve_analytics.unique_fct_order_items_order_item_id.0dec5f6768
+[0m17:13:00.186968 [debug] [Thread-1 (]: Finished running node test.self_serve_analytics.unique_fct_orders_net_order_id.30f80bcbc9
+[0m17:13:00.187722 [debug] [Thread-2 (]: Finished running node test.self_serve_analytics.relationships_fct_orders_net_customer_id__customer_id__ref_dim_customers_.85d33de02e
+[0m17:13:00.189940 [debug] [MainThread]: Using duckdb connection "master"
+[0m17:13:00.190537 [debug] [MainThread]: On master: BEGIN
+[0m17:13:00.191110 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m17:13:00.192054 [debug] [MainThread]: SQL status: OK in 0.001 seconds
+[0m17:13:00.192577 [debug] [MainThread]: On master: COMMIT
+[0m17:13:00.193509 [debug] [MainThread]: Using duckdb connection "master"
+[0m17:13:00.193955 [debug] [MainThread]: On master: COMMIT
+[0m17:13:00.195081 [debug] [MainThread]: SQL status: OK in 0.000 seconds
+[0m17:13:00.195879 [debug] [MainThread]: On master: Close
+[0m17:13:00.196527 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m17:13:00.196969 [debug] [MainThread]: Connection 'test.self_serve_analytics.unique_fct_orders_net_order_id.30f80bcbc9' was properly closed.
+[0m17:13:00.197393 [debug] [MainThread]: Connection 'test.self_serve_analytics.relationships_fct_orders_net_customer_id__customer_id__ref_dim_customers_.85d33de02e' was properly closed.
+[0m17:13:00.197807 [debug] [MainThread]: Connection 'test.self_serve_analytics.unique_fct_order_items_order_item_id.0dec5f6768' was properly closed.
+[0m17:13:00.198210 [debug] [MainThread]: Connection 'test.self_serve_analytics.unique_dim_customers_customer_id.15c9f1e2fd' was properly closed.
+[0m17:13:00.198758 [info ] [MainThread]: 
+[0m17:13:00.199287 [info ] [MainThread]: Finished running 12 data tests in 0 hours 0 minutes and 0.65 seconds (0.65s).
+[0m17:13:00.202184 [debug] [MainThread]: Command end result
+[0m17:13:00.270129 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/dipasmitadebroy/Documents/Artificial_Intelligence/ml_projects/self-serve-analytics-demo/dbt_analytics/target/manifest.json
+[0m17:13:00.273720 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/dipasmitadebroy/Documents/Artificial_Intelligence/ml_projects/self-serve-analytics-demo/dbt_analytics/target/semantic_manifest.json
+[0m17:13:00.287441 [debug] [MainThread]: Wrote artifact RunExecutionResult to /Users/dipasmitadebroy/Documents/Artificial_Intelligence/ml_projects/self-serve-analytics-demo/dbt_analytics/target/run_results.json
+[0m17:13:00.288295 [info ] [MainThread]: 
+[0m17:13:00.289084 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m17:13:00.289767 [info ] [MainThread]: 
+[0m17:13:00.290464 [info ] [MainThread]: Done. PASS=12 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=12
+[0m17:13:00.291624 [warn ] [MainThread]: [[33mWARNING[0m][DeprecationsSummary]: Deprecated functionality
+Summary of encountered deprecations:
+- MissingArgumentsPropertyInGenericTestDeprecation: 2 occurrences
+To see all deprecation instances instead of just the first occurrence of each,
+run command again with the `--show-all-deprecations` flag. You may also need to
+run with `--no-partial-parse` as some deprecations are only encountered during
+parsing.
+[0m17:13:00.296050 [debug] [MainThread]: Resource report: {"command_name": "test", "command_success": true, "command_wall_clock_time": 2.311554, "process_in_blocks": "0", "process_kernel_time": 0.707579, "process_mem_max_rss": "162443264", "process_out_blocks": "0", "process_user_time": 3.923967}
+[0m17:13:00.297046 [debug] [MainThread]: Command `dbt test` succeeded at 17:13:00.296883 after 2.31 seconds
+[0m17:13:00.297784 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1054fde90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1054fc550>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x100b12250>]}
+[0m17:13:00.298543 [debug] [MainThread]: Flushing usage events
+[0m17:13:00.598780 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m17:14:12.909483 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10d2fc8d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10e20b010>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10e20b610>]}
+
+
+============================== 17:14:12.916571 | 6efc33f3-88f0-4c4c-bcc0-407873c4cc0f ==============================
+[0m17:14:12.916571 [info ] [MainThread]: Running with dbt=1.11.11
+[0m17:14:12.917574 [debug] [MainThread]: running dbt with arguments {'use_experimental_parser': 'False', 'warn_error': 'None', 'fail_fast': 'False', 'profiles_dir': '/Users/dipasmitadebroy/Documents/Artificial_Intelligence/ml_projects/self-serve-analytics-demo/dbt_analytics', 'partial_parse': 'True', 'debug': 'False', 'static_parser': 'True', 'log_cache_events': 'False', 'indirect_selection': 'eager', 'empty': 'None', 'quiet': 'False', 'version_check': 'True', 'log_path': '/Users/dipasmitadebroy/Documents/Artificial_Intelligence/ml_projects/self-serve-analytics-demo/dbt_analytics/logs', 'write_json': 'True', 'invocation_command': 'dbt test --select no_deprecated_product_names', 'use_colors': 'True', 'cache_selected_only': 'False', 'printer_width': '80', 'target_path': 'None', 'no_print': 'None', 'log_format': 'default', 'introspect': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'send_anonymous_usage_stats': 'True'}
+[0m17:14:13.382687 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '6efc33f3-88f0-4c4c-bcc0-407873c4cc0f', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10e3fdb50>]}
+[0m17:14:13.460620 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '6efc33f3-88f0-4c4c-bcc0-407873c4cc0f', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10e1dc890>]}
+[0m17:14:13.464130 [info ] [MainThread]: Registered adapter: duckdb=1.10.1
+[0m17:14:13.625509 [debug] [MainThread]: checksum: 30a8cc8fdcbf66701b0944d4ccce3fa46dd04b61e5df68b9f16d57b2e0e3f0be, vars: {}, profile: , target: , version: 1.11.11
+[0m17:14:13.822377 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 1 files added, 0 files changed.
+[0m17:14:13.823059 [debug] [MainThread]: Partial parsing: added file: self_serve_analytics://tests/no_deprecated_product_names.sql
+[0m17:14:14.178134 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '6efc33f3-88f0-4c4c-bcc0-407873c4cc0f', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10e600190>]}
+[0m17:14:14.331147 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/dipasmitadebroy/Documents/Artificial_Intelligence/ml_projects/self-serve-analytics-demo/dbt_analytics/target/manifest.json
+[0m17:14:14.333892 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/dipasmitadebroy/Documents/Artificial_Intelligence/ml_projects/self-serve-analytics-demo/dbt_analytics/target/semantic_manifest.json
+[0m17:14:14.360236 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '6efc33f3-88f0-4c4c-bcc0-407873c4cc0f', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10eabfe50>]}
+[0m17:14:14.360929 [info ] [MainThread]: Found 7 models, 13 data tests, 5 sources, 485 macros
+[0m17:14:14.361433 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '6efc33f3-88f0-4c4c-bcc0-407873c4cc0f', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10e259410>]}
+[0m17:14:14.363680 [info ] [MainThread]: 
+[0m17:14:14.364199 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m17:14:14.364629 [info ] [MainThread]: 
+[0m17:14:14.365260 [debug] [MainThread]: Acquiring new duckdb connection 'master'
+[0m17:14:14.372007 [debug] [ThreadPool]: Acquiring new duckdb connection 'list_warehouse_main'
+[0m17:14:14.446504 [debug] [ThreadPool]: Using duckdb connection "list_warehouse_main"
+[0m17:14:14.447044 [debug] [ThreadPool]: On list_warehouse_main: BEGIN
+[0m17:14:14.447468 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m17:14:14.478030 [debug] [ThreadPool]: SQL status: OK in 0.030 seconds
+[0m17:14:14.479079 [debug] [ThreadPool]: Using duckdb connection "list_warehouse_main"
+[0m17:14:14.479866 [debug] [ThreadPool]: On list_warehouse_main: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "self_serve_analytics", "target_name": "dev", "connection_name": "list_warehouse_main"} */
+select
+      'warehouse' as database,
+      table_name as name,
+      table_schema as schema,
+      CASE table_type
+        WHEN 'BASE TABLE' THEN 'table'
+        WHEN 'VIEW' THEN 'view'
+        WHEN 'LOCAL TEMPORARY' THEN 'table'
+        END as type
+    from system.information_schema.tables
+    where lower(table_schema) = 'main'
+    and lower(table_catalog) = 'warehouse'
+  
+[0m17:14:14.502407 [debug] [ThreadPool]: SQL status: OK in 0.022 seconds
+[0m17:14:14.504851 [debug] [ThreadPool]: On list_warehouse_main: ROLLBACK
+[0m17:14:14.506335 [debug] [ThreadPool]: Failed to rollback 'list_warehouse_main'
+[0m17:14:14.507853 [debug] [ThreadPool]: On list_warehouse_main: Close
+[0m17:14:14.513105 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '6efc33f3-88f0-4c4c-bcc0-407873c4cc0f', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10ea52e50>]}
+[0m17:14:14.513870 [debug] [MainThread]: Using duckdb connection "master"
+[0m17:14:14.514351 [debug] [MainThread]: On master: BEGIN
+[0m17:14:14.514795 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m17:14:14.515825 [debug] [MainThread]: SQL status: OK in 0.001 seconds
+[0m17:14:14.516357 [debug] [MainThread]: On master: COMMIT
+[0m17:14:14.516837 [debug] [MainThread]: Using duckdb connection "master"
+[0m17:14:14.517459 [debug] [MainThread]: On master: COMMIT
+[0m17:14:14.518339 [debug] [MainThread]: SQL status: OK in 0.000 seconds
+[0m17:14:14.519060 [debug] [MainThread]: On master: Close
+[0m17:14:14.523211 [debug] [Thread-1 (]: Began running node test.self_serve_analytics.no_deprecated_product_names
+[0m17:14:14.524315 [info ] [Thread-1 (]: 1 of 1 START test no_deprecated_product_names .................................. [RUN]
+[0m17:14:14.525419 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_warehouse_main, now test.self_serve_analytics.no_deprecated_product_names)
+[0m17:14:14.526042 [debug] [Thread-1 (]: Began compiling node test.self_serve_analytics.no_deprecated_product_names
+[0m17:14:14.536021 [debug] [Thread-1 (]: Writing injected SQL for node "test.self_serve_analytics.no_deprecated_product_names"
+[0m17:14:14.537246 [debug] [Thread-1 (]: Began executing node test.self_serve_analytics.no_deprecated_product_names
+[0m17:14:14.564995 [debug] [Thread-1 (]: Writing runtime sql for node "test.self_serve_analytics.no_deprecated_product_names"
+[0m17:14:14.566297 [debug] [Thread-1 (]: Using duckdb connection "test.self_serve_analytics.no_deprecated_product_names"
+[0m17:14:14.566931 [debug] [Thread-1 (]: On test.self_serve_analytics.no_deprecated_product_names: BEGIN
+[0m17:14:14.567485 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m17:14:14.568656 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m17:14:14.569492 [debug] [Thread-1 (]: Using duckdb connection "test.self_serve_analytics.no_deprecated_product_names"
+[0m17:14:14.570475 [debug] [Thread-1 (]: On test.self_serve_analytics.no_deprecated_product_names: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "self_serve_analytics", "target_name": "dev", "node_id": "test.self_serve_analytics.no_deprecated_product_names"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  -- This test PASSES if it returns ZERO rows.
+-- If it ever returns rows, the deprecated "Comet Mug" name (pre-rename)
+-- is leaking into a canonical model again, which would cause exactly
+-- the undercount bug this project found and fixed early on.
+
+select *
+from "warehouse"."main"."fct_order_items"
+where product_name = 'Comet Mug'
+  
+  
+      
+    ) dbt_internal_test
+[0m17:14:14.594573 [debug] [Thread-1 (]: SQL status: OK in 0.023 seconds
+[0m17:14:14.600179 [debug] [Thread-1 (]: On test.self_serve_analytics.no_deprecated_product_names: ROLLBACK
+[0m17:14:14.601069 [debug] [Thread-1 (]: Failed to rollback 'test.self_serve_analytics.no_deprecated_product_names'
+[0m17:14:14.601882 [debug] [Thread-1 (]: On test.self_serve_analytics.no_deprecated_product_names: Close
+[0m17:14:14.603399 [info ] [Thread-1 (]: 1 of 1 PASS no_deprecated_product_names ........................................ [[32mPASS[0m in 0.08s]
+[0m17:14:14.604772 [debug] [Thread-1 (]: Finished running node test.self_serve_analytics.no_deprecated_product_names
+[0m17:14:14.606995 [debug] [MainThread]: Using duckdb connection "master"
+[0m17:14:14.607755 [debug] [MainThread]: On master: BEGIN
+[0m17:14:14.608238 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m17:14:14.609070 [debug] [MainThread]: SQL status: OK in 0.001 seconds
+[0m17:14:14.609558 [debug] [MainThread]: On master: COMMIT
+[0m17:14:14.610350 [debug] [MainThread]: Using duckdb connection "master"
+[0m17:14:14.611224 [debug] [MainThread]: On master: COMMIT
+[0m17:14:14.612432 [debug] [MainThread]: SQL status: OK in 0.000 seconds
+[0m17:14:14.613009 [debug] [MainThread]: On master: Close
+[0m17:14:14.613618 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m17:14:14.614041 [debug] [MainThread]: Connection 'test.self_serve_analytics.no_deprecated_product_names' was properly closed.
+[0m17:14:14.614491 [info ] [MainThread]: 
+[0m17:14:14.614974 [info ] [MainThread]: Finished running 1 test in 0 hours 0 minutes and 0.25 seconds (0.25s).
+[0m17:14:14.616023 [debug] [MainThread]: Command end result
+[0m17:14:14.670801 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/dipasmitadebroy/Documents/Artificial_Intelligence/ml_projects/self-serve-analytics-demo/dbt_analytics/target/manifest.json
+[0m17:14:14.673534 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/dipasmitadebroy/Documents/Artificial_Intelligence/ml_projects/self-serve-analytics-demo/dbt_analytics/target/semantic_manifest.json
+[0m17:14:14.682549 [debug] [MainThread]: Wrote artifact RunExecutionResult to /Users/dipasmitadebroy/Documents/Artificial_Intelligence/ml_projects/self-serve-analytics-demo/dbt_analytics/target/run_results.json
+[0m17:14:14.683144 [info ] [MainThread]: 
+[0m17:14:14.683801 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m17:14:14.684430 [info ] [MainThread]: 
+[0m17:14:14.684983 [info ] [MainThread]: Done. PASS=1 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=1
+[0m17:14:14.688503 [debug] [MainThread]: Resource report: {"command_name": "test", "command_success": true, "command_wall_clock_time": 1.8782824, "process_in_blocks": "0", "process_kernel_time": 0.698103, "process_mem_max_rss": "149385216", "process_out_blocks": "0", "process_user_time": 3.857784}
+[0m17:14:14.689575 [debug] [MainThread]: Command `dbt test` succeeded at 17:14:14.689403 after 1.88 seconds
+[0m17:14:14.690173 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10e23fe50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109746650>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1098da3d0>]}
+[0m17:14:14.691319 [debug] [MainThread]: Flushing usage events
+[0m17:14:14.911809 [debug] [MainThread]: An error was encountered while trying to flush usage events

@@ -1,0 +1,12 @@
+version: 2
+
+sources:
+  - name: raw
+    schema: main
+    description: "Raw tables loaded directly from CSV by data/generate_data.py + load_warehouse.py's raw-loading step"
+    tables:
+      - name: raw_orders
+      - name: raw_order_items
+      - name: raw_customers
+      - name: raw_products
+      - name: raw_refunds

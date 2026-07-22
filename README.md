@@ -207,6 +207,23 @@ eight. That one-character inconsistency was invisible in a quick read of
 the SQL and only showed up because a pinned, tolerance-checked expected
 value caught the resulting drift.
 
+**8. The same class of bug will find every tool in your stack, not just
+the agent.** Standing up a free BI tool (Metabase) against this same
+warehouse surfaced two more real integration problems before a single
+dashboard could be built: the official Metabase Docker image is
+Alpine-based and structurally incompatible with DuckDB's native driver
+(a documented, maintainer-acknowledged issue, fixed by switching to a
+community-provided Debian-based image instead), and a read-only volume
+mount blocked DuckDB from opening the file at all, since even read
+queries need incidental write access for lock files. Once connected, the
+very first dashboard number came back wrong, **$13,333.33 instead of
+$12,816.83**, because Metabase's own visual date-range picker is
+inclusive on both bounds, silently including one extra day. The same
+`>=` versus `>` boundary bug that broke one eval question had now broken
+a BI tool's GUI too, independently, in a completely different system.
+The fix was the same lesson from a different angle: don't trust a visual
+filter's implicit semantics, write the exact governed SQL directly.
+
 ### Strategic Next Steps
 
 1. **Run the same pinned eval set against a frontier model (Claude) and
@@ -249,6 +266,7 @@ warehouse/
   models/marts/                 canonical, governed models
   semantic_layer/metrics.yml     single source of truth for business terms
 skills/ecommerce-analytics/     agent instructions and reference docs
+dbt_analytics/                  dbt-core project: schema tests plus the Comet Mug regression test
 agent/                         the working agent (NVIDIA free tier by default)
 evals/                         pinned test questions, grader, results log, summarize_results.py
 docs/                          milestone by milestone build guide
